@@ -1,5 +1,8 @@
 package by.epam.secondLesson;
 
+/*  Turn a matrix on 90 degrees clockwise
+    (Повернуть матрицу на 90 градусов по часовой стрелке)*/
+
 public class DegreeRandomMatrix {
     public static void main(String[] args) {
         int matrixSize = 4;

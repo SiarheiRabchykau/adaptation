@@ -1,5 +1,8 @@
 package by.epam.secondLesson;
 
+/*  Find the second by length string in a list or array
+    (Найти вторую по длине строку в списке)*/
+
 public class FindSecondLengthString {
     public static void main(String[] args) {
 

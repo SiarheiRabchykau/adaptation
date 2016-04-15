@@ -1,5 +1,8 @@
 package by.epam.secondLesson;
 
+ /* Сhange by places first and last letters in each second string of list or array
+    (Поменять местами первую и последнюю буквы в каждой второй строке списка).*/
+
 public class ReplaceSymbols {
     public static void main(String[] args) {
         String[] words = {"v", "123456", "ywertq", "testing", "taw", "soft", "earr"};
