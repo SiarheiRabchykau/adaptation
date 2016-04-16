@@ -17,6 +17,7 @@ public class Calc {
         String operation = scanner.next();
         System.out.println("Enter second num ");
         double secondNumber = scanner.nextInt();
+
         scanner.close();
 
         double result = Calculate(firstNumber, secondNumber, operation);
@@ -24,7 +25,7 @@ public class Calc {
 
     }
 
-    public static double Calculate(double firstNum, double secondNum, String operation) {
+    private static double Calculate(double firstNum, double secondNum, String operation) {
         double result = 0;
         switch (operation) {
             case "+":
