@@ -6,6 +6,16 @@ package by.epam.secondLesson;
 public class DegreeRandomMatrix {
     public static void main(String[] args) {
         int matrixSize = 4;
+/*int matrixLenght = 0;
+int matrixHeight = 0;
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter matrix length "); 
+matrixLenght = scanner.nextInt;
+System.out.ptintln(" Enter matrix height ");
+matrixHeight = scanner.nextInt;
+int[][] = new int[matrixLenght][matrixHeight];
+
+I'm to lazy to change generate loop*/
         int[][] matrix = new int[matrixSize][matrixSize];
 
         for (int i = 0; i < matrixSize; i++) {
