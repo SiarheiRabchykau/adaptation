@@ -4,9 +4,9 @@ package by.epam.secondLesson;
     (Найти вторую по длине строку в списке)*/
 
 /*Issue
-1) Добавь метод, который принимает массив и возвращает отсортированный по убыванию длин строк
-2) В отсортированном массиве верни второй элемент
-3) Предоставь возможность вводить размер массива и заполнять его через консоль
+1) Добавь метод, который принимает массив и возвращает отсортированный по убыванию длин строк   - выполнено
+2) В отсортированном массиве верни второй элемент                                               - выполнено
+3) Предоставь возможность вводить размер массива и заполнять его через консоль                  - выполнено
  */
 
 import java.util.Scanner;
@@ -31,7 +31,7 @@ public class FindSecondLengthString {
                     "123456789", "1234", "1234"};
             printStrArray(words);
 
-            //use new
+            //use one of find of second length element method
             //findSecondLength(words);
             sortStrArray(words);
         } else {
@@ -80,7 +80,7 @@ public class FindSecondLengthString {
         System.out.println();
     }
 
-    protected static void findSecondLength (String[] strArray) {
+    private static void findSecondLength (String[] strArray) {
         String maxLength = strArray[0];
         String middleLengthStr = strArray[0];
         int maxLengthPos = 0;
