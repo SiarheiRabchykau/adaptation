@@ -4,6 +4,11 @@ package by.epam.secondLesson;
         4 операции: сложение, вычитание, умножение, деление) с вводом\выводом
         значений\результатов;*/
 
+/*Issue
+1) ввожу 4.5 - падает, хотя метод Calculate принимает два числа типа double - Выполнено
+2) названия методов в java должны быть с маленькой буквы                    - Sir, yes Sir!
+ */
+
 import java.util.Scanner;
 
 public class Calc {
@@ -12,20 +17,19 @@ public class Calc {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter first num ");
-        double firstNumber = scanner.nextInt();
+        double firstNumber = scanner.nextDouble();
         System.out.println("Enter operation ");
         String operation = scanner.next();
         System.out.println("Enter second num ");
-        double secondNumber = scanner.nextInt();
-
+        double secondNumber = scanner.nextDouble();
         scanner.close();
 
-        double result = Calculate(firstNumber, secondNumber, operation);
+        double result = calculate(firstNumber, secondNumber, operation);
         System.out.println("Result\n" + result);
 
     }
 
-    private static double Calculate(double firstNum, double secondNum, String operation) {
+    private static double calculate(double firstNum, double secondNum, String operation) {
         double result = 0;
         switch (operation) {
             case "+":
