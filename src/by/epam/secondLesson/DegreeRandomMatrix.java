@@ -31,7 +31,6 @@ public class DegreeRandomMatrix {
         } else {
 
             enterMatrix(matrixSize);
-
         }
 
         printMatrix(matrix);
