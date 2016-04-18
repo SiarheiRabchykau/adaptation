@@ -29,12 +29,12 @@ I'm to lazy to change generate loop*/
         // rotate matrix
         for (int k = 0; k < matrixSize / 2; k++) {
             for (int j = k; j < matrixSize - 1 - k; j++) {
-                int tmp1 = matrix[j][k];
+                int tmp = matrix[j][k];
 
                 matrix[j][k] = matrix[matrixSize - 1 - k][j];
                 matrix[matrixSize - 1 - k][j] = matrix[matrixSize - 1 - j][matrixSize - 1 - k];
                 matrix[matrixSize - 1 - j][matrixSize - 1 - k] = matrix[k][matrixSize - 1 - j];
-                matrix[k][matrixSize - 1 - j] = tmp1;
+                matrix[k][matrixSize - 1 - j] = tmp;
             }
         }
 
@@ -44,7 +44,7 @@ I'm to lazy to change generate loop*/
     }
 
     //print matrix
-    public static void PrintMatrix(int m[][]) {
+    private static void PrintMatrix(int m[][]) {
         int size = m.length;
         for (int i = 0; i < size; i++) {
 
