@@ -1,21 +1,34 @@
 package by.epam.motogarage.mototechnictype.motorcycle;
 
 import by.epam.motogarage.mototechnictype.Mototechnic;
+import by.epam.motogarage.mototechnictype.interfaces.Tuning;
 
-public class TouristBike extends Mototechnic{
-    public TouristBike (String brand, String model, String nickname,
-                        int maxSpeed, int weight,  int power,
-                        int capacity, int wheels, int caseCapacity,
-                        double cost) {
-        this.brand = brand;
-        this.model = model;
-        this.nickname = nickname;
-        this.maxSpeed = maxSpeed;
-        this.weight = weight;
-        this.power = power;
-        this.capacity = capacity;
+public class TouristBike extends Mototechnic implements Tuning {
+    public TouristBike(String brand, String model,
+                       int maxSpeed, int weight, int power,
+                       int wheels, int caseCapacity,
+                       double cost) {
+        super(brand, model, maxSpeed, weight, power, cost);
         this.wheels = wheels;
         this.caseCapacity = caseCapacity;
-        this.cost = cost;
+    }
+
+    //override from interfaces
+    @Override
+    public void reduceWeight() {
+        int raceWeight = (int) (this.getWeigth()/1.15);
+        this.setWeigth(raceWeight);
+    }
+    //override from interfaces
+    @Override
+    public void increasePower() {
+        int racePower = (int) (this.getPower()*1.05);
+        this.setPower(racePower);
+    }
+
+    //override abstract method from abstract class
+    @Override
+    public void makeSameNoise() {
+        System.out.println("puf-puf-puf");
     }
 }
