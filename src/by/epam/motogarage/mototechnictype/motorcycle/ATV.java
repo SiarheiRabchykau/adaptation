@@ -1,8 +1,8 @@
 package by.epam.motogarage.mototechnictype.motorcycle;
 
-import by.epam.motogarage.mototechnictype.Mototechnic;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 
-public class ATV extends Mototechnic{
+public class ATV extends Mototechnics {
     public ATV(String brand, String model,
                int maxSpeed, int weight, int power,
                int caseCapacity,

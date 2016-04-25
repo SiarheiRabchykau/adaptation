@@ -1,6 +1,6 @@
 package by.epam.motogarage.mototechnictype;
 
-public abstract class Mototechnic {
+public abstract class Mototechnics {
     protected String brand;
     protected String model;
 
@@ -14,9 +14,9 @@ public abstract class Mototechnic {
 
     protected boolean isNaked;
 
-    protected Mototechnic(String brand, String model,
-                          int maxSpeed, int weight, int power,
-                          double cost) {
+    protected Mototechnics(String brand, String model,
+                           int maxSpeed, int weight, int power,
+                           double cost) {
         this.brand = brand;
         this.model = model;
         this.maxSpeed = maxSpeed;
@@ -52,11 +52,11 @@ public abstract class Mototechnic {
         this.maxSpeed = newMaxSpeed;
     }
 
-    public int getWeigth() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeigth(int newWeight) {
+    public void setWeight(int newWeight) {
         this.weight = newWeight;
     }
 

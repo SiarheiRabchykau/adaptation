@@ -1,9 +1,9 @@
 package by.epam.motogarage.mototechnictype.motorcycle;
 
-import by.epam.motogarage.mototechnictype.Mototechnic;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 import by.epam.motogarage.mototechnictype.interfaces.Tuning;
 
-public class TouristBike extends Mototechnic implements Tuning{
+public class TouristBike extends Mototechnics implements Tuning{
     public TouristBike(String brand, String model,
                        int maxSpeed, int weight, int power,
                        int wheels, int caseCapacity,

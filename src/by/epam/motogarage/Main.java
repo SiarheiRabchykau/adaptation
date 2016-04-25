@@ -1,16 +1,17 @@
 package by.epam.motogarage;
 
-import by.epam.motogarage.mototechnictype.Mototechnic;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 import by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
 import by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
+import java.io.File;
 import java.util.*;
 
 public abstract class Main {
     public static void main(String[] args) {
 
-        List<Mototechnic> motoList = new ArrayList<>();
+        ArrayList<Mototechnics> motoList = new ArrayList<>();
 
         SportBikes drozd = new SportBikes("Honda", "CBR1100xx", 300, 259, 163, 7500.50);
         drozd.setCost(8000);
@@ -27,58 +28,58 @@ public abstract class Main {
         SportBikes cbr1000rr = new SportBikes("Honda", "CBR1000rr", 299, 200, 170, 8000);
         ATV Grizzly700 = new ATV("Yamaha", "Grizzly 700", 120, 400, 70, 15, 10000);
 
-
         motoList.add(drozd);
         motoList.add(cbr1000rr);
         motoList.add(Grizzly700);
         motoList.add(european);
 
-        for (Mototechnic m : motoList) {
-            System.out.println(m.getInfo());
-        }
+        printArrayList(motoList);
 
         calculateCostGarage(motoList);
 
         //sort by power
-        Collections.sort(motoList, new Comparator<Mototechnic>() {
+        Collections.sort(motoList, new Comparator<Mototechnics>() {
             @Override
-            public int compare(Mototechnic moto1, Mototechnic moto2) {
+            public int compare(Mototechnics moto1, Mototechnics moto2) {
                 return (moto2.getWeight() - moto1.getWeight());
             }
         });
 
         System.out.println("\nSort by weight");
 
-        for (Mototechnic m : motoList) {
-            System.out.println(m.getInfo());
-        }
+        printArrayList(motoList);
 
         findPower(motoList);
 
     }
 
-    private static void calculateCostGarage(List<Mototechnic> list) {
+    private static void printArrayList(ArrayList<Mototechnics> list) {
+        for (Mototechnics m : list) {
+            System.out.println(m.getInfo());
+        }
+    }
+
+    private static void calculateCostGarage(ArrayList<Mototechnics> list) {
 
         double garagePrice = 0.0;
-        for (Mototechnic moto : list){
+        for (Mototechnics moto : list) {
             garagePrice += moto.getCost();
         }
         System.out.println("Cost of all motorcycle in garage: " + garagePrice);
     }
 
-    private static void findPower (List<Mototechnic> list) {
-        System.out.println("\n Find motorcycle by your choose of Power");
+    private static void findPower(ArrayList<Mototechnics> list) {
+        System.out.println("Find motorcycle by your choose of Power");
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter min Power ");
-        int minPower  = scanner.nextInt();
+        int minPower = scanner.nextInt();
         System.out.println("Enter max Power ");
-        int maxPower  = scanner.nextInt();
+        int maxPower = scanner.nextInt();
 
         scanner.close();
 
-
-        for (Mototechnic m : list) {
+        for (Mototechnics m : list) {
             if (m.getPower() >= minPower && m.getPower() <= maxPower) {
                 System.out.printf("Power of %s: %s", m.getModel(), m.getPower());
                 System.out.println();
@@ -86,8 +87,11 @@ public abstract class Main {
                 System.out.println("Your power data is incorrect! Bye!");
                 break;
             }
-
-
         }
+    }
+
+    private static void readData(){
+        File file = new File("C:\\Test\\Test.txt");
+        file.exists()
     }
 }
