@@ -3,17 +3,17 @@ package by.epam.motogarage.mototechnictype.motorcycle;
 import by.epam.motogarage.mototechnictype.Mototechnic;
 import by.epam.motogarage.mototechnictype.interfaces.Tuning;
 
-public class SportBikes extends Mototechnic implements Tuning {
+public class SportBikes extends Mototechnic implements Tuning{
     public SportBikes(String brand, String model,
                       int maxSpeed, int weight, int power,
                       double cost) {
         super(brand, model, maxSpeed, weight, power, cost);
-        this.wheels = 2;
-        this.caseCapacity = 0;
+        this.setWheels(2);
+        this.setCaseCapacity(0);
     }
 
     public void doWheelie() {
-        if (this.getWeigth() > 300 | this.power < 120) {
+        if (this.getWeight() > 300 | this.getPower() < 120) {
             System.out.println("Sorry, but your motorcycle is not powerful");
         } else {
             System.out.println("Hey! Be careful!");
@@ -29,8 +29,8 @@ public class SportBikes extends Mototechnic implements Tuning {
     //override from interfaces
     @Override
     public void reduceWeight() {
-        int raceWeight = (int) (this.getWeigth()/1.02);
-        this.setWeigth(raceWeight);
+        int raceWeight = (int) (this.getWeight()/1.02);
+        this.setWeight(raceWeight);
     }
 
     //override from interfaces

@@ -3,21 +3,21 @@ package by.epam.motogarage.mototechnictype.motorcycle;
 import by.epam.motogarage.mototechnictype.Mototechnic;
 import by.epam.motogarage.mototechnictype.interfaces.Tuning;
 
-public class TouristBike extends Mototechnic implements Tuning {
+public class TouristBike extends Mototechnic implements Tuning{
     public TouristBike(String brand, String model,
                        int maxSpeed, int weight, int power,
                        int wheels, int caseCapacity,
                        double cost) {
         super(brand, model, maxSpeed, weight, power, cost);
-        this.wheels = wheels;
-        this.caseCapacity = caseCapacity;
+        this.setWheels(wheels);
+        this.setCaseCapacity(caseCapacity);
     }
 
     //override from interfaces
     @Override
     public void reduceWeight() {
-        int raceWeight = (int) (this.getWeigth()/1.15);
-        this.setWeigth(raceWeight);
+        int raceWeight = (int) (this.getWeight()/1.15);
+        this.setWeight(raceWeight);
     }
     //override from interfaces
     @Override
