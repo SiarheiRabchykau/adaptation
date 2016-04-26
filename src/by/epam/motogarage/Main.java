@@ -92,6 +92,6 @@ public abstract class Main {
 
     private static void readData(){
         File file = new File("C:\\Test\\Test.txt");
-        file.exists()
+        file.exists();
     }
 }
