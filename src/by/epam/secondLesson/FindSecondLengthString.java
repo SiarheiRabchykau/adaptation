@@ -12,11 +12,23 @@ package by.epam.secondLesson;
 Сhange by places first and last letters in each second string of list or array
     (Поменять местами первую и последнюю буквы в каждой второй строке списка).
 
-1) Предоставь возможность вводить размер массива и заполнять его через консоль  -
-2) В задании написано, что в каждой второй строке списка нужно                  -
-    менять местами буквы. То есть, во второй, четвёртой и т.д.                  - В каждой второй и меняет (бага небыло)
-3) Меняй местами буквы в отдельном методе.                                      -
+1) Предоставь возможность вводить размер массива и заполнять его через консоль  - выполнено
+2) В задании написано, что в каждой второй строке списка нужно
+    менять местами буквы. То есть, во второй, четвёртой и т.д.                  - выполнено
+3) Меняй местами буквы в отдельном методе.                                      - выполнено
  */
+
+/*Second issue
+1) (choose.equals("y") || choose.equals("yes") || choose.equals("Yes")) Это можно сократить
+                                                                                - сокращено регулярным выражением
+
+2) Есть большой кусок кода, который у тебя дублируется в этом классе. Дублирование кода нужно убрать.
+                                                    - если я правильно понял, то дублирование было в повторении четырёх
+                                                    - методов для манипуляции с массиом : print, replace, print, sort
+                                                    - я эти методы вынес в отдельный метод http://bit.ly/1XUiqi0
+
+3) Убери лишний код и лишние классы)                - Удалён класс ReplaceSymbols, удалены старые методы
+*/
 
 import java.util.Scanner;
 
@@ -32,26 +44,13 @@ public class FindSecondLengthString {
         System.out.println("Auto-generate array? (Y/n)");
         String choose = sc.next();
 
-        if (choose.equals("y") || choose.equals("yes") || choose.equals("Yes")) {
-            //this is false generate array
-            //but this array show work of sort method
-            //generateStrArrayRandLength();
-            String[] words = {"v", "123456", "qwerty", "testing", "wat", "soft", "rare"};
+        //add regex
+        if (choose.matches("y|[Yy]es")) {
 
-            //print generated array
-            printStrArray(words);
+            generateStrArrayRandLength();
 
-            //use one of find of second length element method
-            //findSecondLength(words);
+            printReplacePrintSortBlock(words);
 
-            //Сhange by places first and last letters in each second string
-            replaceSymbols(words);
-
-            //print array with replaces symbols
-            printStrArray(words);
-
-            //sort array and print second element
-            sortStrArray(words);
         } else {
             System.out.println("Enter array size ");
             arraySize = sc.nextInt();
@@ -60,17 +59,7 @@ public class FindSecondLengthString {
             //manual fill array
             enterArray(words);
 
-            //print filled array
-            printStrArray(words);
-
-            //Сhange by places first and last letters in each second string
-            replaceSymbols(words);
-
-            //print array with replaces symbols
-            printStrArray(words);
-
-            //sort array and print second element
-            sortStrArray(words);
+            printReplacePrintSortBlock(words);
         }
         sc.close();
    }
@@ -95,8 +84,8 @@ public class FindSecondLengthString {
                 }
             }
         }
-        System.out.println("Second element in sort array");
-        System.out.println(strArray[1] + "\n");
+        System.out.printf("Second element %s in sort array: " + "\n", strArray[1]);
+       // System.out.println(strArray[1] + "\n");
 
         printStrArray(strArray);
     }
@@ -109,29 +98,6 @@ public class FindSecondLengthString {
         System.out.println();
     }
 
-    private static void findSecondLength (String[] strArray) {
-        String maxLength = strArray[0];
-        String middleLengthStr = strArray[0];
-        int maxLengthPos = 0;
-        int middleLengthPos = 0;
-
-        for (int i = 0; i < strArray.length; i++) {
-            String tempStr1 = strArray[i];
-
-            if (tempStr1.length() > maxLength.length()) {
-
-                middleLengthPos = maxLengthPos;
-                maxLengthPos = i;
-
-                middleLengthStr = maxLength;
-                maxLength = tempStr1;
-            }
-        }
-
-        System.out.println("Second by length string is " + middleLengthStr);
-        System.out.println("Position (in array calculus) " + middleLengthPos);
-    }
-
     //this method doesn't show as well work of sorting method
     //generate array with rand(0-10) length and fill rand number (0-100)
     private static void generateStrArrayRandLength() {
@@ -139,7 +105,6 @@ public class FindSecondLengthString {
         words = new String[arraySize];
         for (int i = 0; i < arraySize; i++) {
             words [i] = String.valueOf((int)(Math.random() * 10000));
-            System.out.print(words [i] + "  ");
         }
     }
 
@@ -147,7 +112,7 @@ public class FindSecondLengthString {
     private static void replaceSymbols (String[] strArray) {
         System.out.println("replaceSymbols method work");
         for (int i = 0; i < strArray.length; i++) {
-            if (i % 2 == 0) {
+            if (!(i % 2 == 0)) {
                 char charWord[] = strArray[i].toCharArray();
                 int charLength  = charWord.length - 1;
                 char temp       = charWord[0];
@@ -158,5 +123,19 @@ public class FindSecondLengthString {
                 strArray[i] = new String (charWord);
             }
         }
+    }
+
+    private static void printReplacePrintSortBlock(String[] strArray){
+        //print filled array
+        printStrArray(strArray);
+
+        //Сhange by places first and last letters in each second string
+        replaceSymbols(strArray);
+
+        //print array with replaces symbols
+        printStrArray(strArray);
+
+        //sort array and print second element
+        sortStrArray(strArray);
     }
 }

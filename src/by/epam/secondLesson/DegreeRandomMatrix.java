@@ -26,7 +26,8 @@ public class DegreeRandomMatrix {
         System.out.println("Auto-generate matrix? (Y/n)");
         String choose = sc.next();
 
-        if (choose.equals("y") || choose.equals("yes") || choose.equals("Yes")) {
+        //add regex
+        if (choose.matches("y|[Yy]es")) {
             generateMatrix(matrixSize);
         } else {
             enterMatrix(matrixSize);
