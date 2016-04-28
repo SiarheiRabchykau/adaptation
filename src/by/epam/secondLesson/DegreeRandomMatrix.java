@@ -11,6 +11,10 @@ package by.epam.secondLesson;
     - в отдельные методы                                    - Выполнено
  */
 
+/*Second issue
+Матрица необязательно должна быть размера NxN (3x3, 4x4).
+Нужно чтобы матрица была NxM (3x5, 2x2 и т.д.)              - Выполнено
+*/
 import java.util.Scanner;
 
 public class DegreeRandomMatrix {
@@ -18,24 +22,27 @@ public class DegreeRandomMatrix {
 
     public static void main(String[] args) {
 
-        int matrixSize;
+        int rows;
+        int columns;
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter matrix size ");
-        matrixSize = sc.nextInt();
+        System.out.println("Enter the number of rows ");
+        rows = sc.nextInt();
+        System.out.println("Enter number of columns ");
+        columns = sc.nextInt();
         System.out.println("Auto-generate matrix? (Y/n)");
         String choose = sc.next();
 
         //add regex
         if (choose.matches("y|[Yy]es")) {
-            generateMatrix(matrixSize);
+            generateMatrix(rows, columns);
         } else {
-            enterMatrix(matrixSize);
+            enterMatrix(rows, columns);
         }
 
         printMatrix(matrix);
 
-        rotateMatrix(matrixSize);
+        rotateMatrix2(matrix);
 
         printMatrix(matrix);
 
@@ -44,12 +51,11 @@ public class DegreeRandomMatrix {
 
     //print matrix
     private static void printMatrix(int m[][]) {
-        int size = m.length;
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < m[0].length; i++) {
 
-            for (int j = 0; j < size; j++) {
-                System.out.print(m[i][j] + "\t");
+            for (int j = 0; j < m.length; j++) {
+                System.out.print(m[j][i] + "\t");
             }
             System.out.print("\n");
         }
@@ -57,42 +63,40 @@ public class DegreeRandomMatrix {
     }
 
     //manual enter matrix
-    private static void enterMatrix(int size ) {
+    private static void enterMatrix(int row, int column) {
         System.out.println("After every number press \"Enter\", please");
         System.out.println("Enter matrix: ");
         Scanner sc = new Scanner(System.in);
 
-        matrix = new int[size][size];
+        matrix = new int[row][column];
 
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                matrix[i][j] = sc.nextInt();
+        for (int i = 0; i < column; i++) {
+            for (int j = 0; j < row; j++) {
+                matrix[j][i] = sc.nextInt();
             }
         }
         System.out.print("\n");
     }
 
     //random generate matrix
-    private static void generateMatrix(int matrixSize) {
-        matrix = new int[matrixSize][matrixSize];
-        for (int i = 0; i < matrixSize; i++) {
-            for (int j = 0; j < matrixSize; j++) {
-                matrix[i][j] = (int) (Math.random() * 10);
+    private static void generateMatrix(int row, int column) {
+        matrix = new int[row][column];
+        for (int i = 0; i < column; i++) {
+            for (int j = 0; j < row; j++) {
+                matrix[j][i] = (int) (Math.random() * 10);
             }
         }
     }
 
     //rotate matrix
-    private static void rotateMatrix (int matrixSize) {
-        for (int k = 0; k < matrixSize / 2; k++) {
-            for (int j = k; j < matrixSize - 1 - k; j++) {
-                int tmp = matrix[j][k];
+    private static void rotateMatrix2 (int m[][]) {
 
-                matrix[j][k] = matrix[matrixSize - 1 - k][j];
-                matrix[matrixSize - 1 - k][j] = matrix[matrixSize - 1 - j][matrixSize - 1 - k];
-                matrix[matrixSize - 1 - j][matrixSize - 1 - k] = matrix[k][matrixSize - 1 - j];
-                matrix[k][matrixSize - 1 - j] = tmp;
+        int[][] tempMatrix = new int[m[0].length][m.length];
+        for (int i = 0; i < m[0].length; i++) {
+            for (int j = 0; j < m.length; j++) {
+                tempMatrix[i][j] = matrix[j][m[0].length - 1 - i];
             }
         }
+        matrix = tempMatrix;
     }
 }

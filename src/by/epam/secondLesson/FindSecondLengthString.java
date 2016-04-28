@@ -85,7 +85,6 @@ public class FindSecondLengthString {
             }
         }
         System.out.printf("Second element %s in sort array: " + "\n", strArray[1]);
-       // System.out.println(strArray[1] + "\n");
 
         printStrArray(strArray);
     }
