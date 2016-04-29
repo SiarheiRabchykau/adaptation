@@ -1,15 +1,25 @@
 package by.epam.motogarage;
 
+/*Issue
+ 1) Каждый метод должен выполнять одно действие. В методе findPower и ввод данных, и поиск, такого быть не должно.
+
+ 2) Вынеси компаратор в отдельный класс в таске по ООП
+*/
+
 import by.epam.motogarage.mototechnictype.Mototechnics;
 import by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
 import by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public abstract class Main {
-    public static void main(String[] args) {
+    private static int maxPower;
+    private static int minPower;
+
+    public static void main(String[] args) throws IOException {
 
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
@@ -37,20 +47,18 @@ public abstract class Main {
 
         calculateCostGarage(motoList);
 
-        //sort by power
-        Collections.sort(motoList, new Comparator<Mototechnics>() {
-            @Override
-            public int compare(Mototechnics moto1, Mototechnics moto2) {
-                return (moto2.getWeight() - moto1.getWeight());
-            }
-        });
+        //sort by weight
+        Collections.sort(motoList, new CustomComparatorArrayList());
 
         System.out.println("\nSort by weight");
 
         printArrayList(motoList);
 
+        enterPower();
+
         findPower(motoList);
 
+        readData();
     }
 
     private static void printArrayList(ArrayList<Mototechnics> list) {
@@ -68,16 +76,19 @@ public abstract class Main {
         System.out.println("Cost of all motorcycle in garage: " + garagePrice);
     }
 
-    private static void findPower(ArrayList<Mototechnics> list) {
+    private static void enterPower(){
         System.out.println("Find motorcycle by your choose of Power");
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter min Power ");
-        int minPower = scanner.nextInt();
+        minPower = scanner.nextInt();
         System.out.println("Enter max Power ");
-        int maxPower = scanner.nextInt();
+        maxPower = scanner.nextInt();
 
         scanner.close();
+    }
+
+    private static void findPower(ArrayList<Mototechnics> list) {
 
         for (Mototechnics m : list) {
             if (m.getPower() >= minPower && m.getPower() <= maxPower) {
@@ -90,8 +101,12 @@ public abstract class Main {
         }
     }
 
-    private static void readData(){
-        File file = new File("C:\\Test\\Test.txt");
-        file.exists();
+    private static void readData() throws IOException {
+        try {
+            File file = new File("C:\\Test\\Test.txt");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
