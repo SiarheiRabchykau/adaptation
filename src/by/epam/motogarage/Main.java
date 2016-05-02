@@ -70,7 +70,6 @@ public abstract class Main {
         }
 
 
-
         TouristBike european = new TouristBike("Honda", "Pan European", 200, 350, 140, 2, 40, 3000);
         european.setIsNaked(false);
         european.doWheelie();
@@ -85,32 +84,41 @@ public abstract class Main {
 
         ReadFile.readFileWithMoto(motoList, "D:\\test.txt");
 
-        printArrayList(motoList);
+        try {
+            printArrayList(motoList);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            ex.printStackTrace();
+        }
 
-        calculateCostGarage(motoList);
+        try {
+            calculateCostGarage(motoList);
+        } catch (ArithmeticException ex) {
+            ex.printStackTrace();
+        }
 
         System.out.println("\nSort by power");
+
         //sort by power
         Collections.sort(motoList, new CustomComparatorArrayList());
 
         printArrayList(motoList);
 
-/*        enterPower();
+        enterPower();
 
-        findPower(motoList);*/
+        findPower(motoList);
         PrintFile.writeDataToFile(motoList, "D:\\out.txt");
 
     }
 
 
-    private static void printArrayList(ArrayList<Mototechnics> list) {
-        for (Mototechnics m : list) {
-            System.out.println(m.getInfo());
-        }
+    private static void printArrayList(ArrayList<Mototechnics> list) throws ArrayIndexOutOfBoundsException {
+
+            for (Mototechnics m : list) {
+                System.out.println(m.getInfo());
+            }
     }
 
-    private static void calculateCostGarage(ArrayList<Mototechnics> list) {
-
+    private static void calculateCostGarage(ArrayList<Mototechnics> list) throws ArithmeticException{
         double garagePrice = 0.0;
         for (Mototechnics moto : list) {
             garagePrice += moto.getCost();
@@ -118,14 +126,14 @@ public abstract class Main {
         System.out.println("Cost of all motorcycle in garage: " + garagePrice);
     }
 
-    private static void enterPower(){
+    private static void enterPower() {
         System.out.println("Find motorcycle by your choose of Power");
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter min Power ");
         minPower = scanner.nextInt();
-            System.out.println("Enter max Power ");
-            maxPower = scanner.nextInt();
+        System.out.println("Enter max Power ");
+        maxPower = scanner.nextInt();
         scanner.close();
     }
 
