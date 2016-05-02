@@ -1,5 +1,7 @@
 package by.epam.motogarage.mototechnictype;
 
+import by.epam.motogarage.exceptions.ToSmallParam;
+
 public abstract class Mototechnics {
     protected String brand;
     protected String model;
@@ -56,7 +58,10 @@ public abstract class Mototechnics {
         return weight;
     }
 
-    public void setWeight(int newWeight) {
+    public void setWeight(int newWeight) throws ToSmallParam{
+        if (newWeight <= 0){
+            throw new ToSmallParam("Too low weight!");
+        }
         this.weight = newWeight;
     }
 
@@ -64,7 +69,10 @@ public abstract class Mototechnics {
         return power;
     }
 
-    public void setPower(int newPower) {
+    public void setPower(int newPower) throws ToSmallParam {
+        if (newPower <= 0){
+            throw new ToSmallParam("Too low power!");
+        }
         this.power = newPower;
     }
 

@@ -11,13 +11,17 @@ import java.util.ArrayList;
 class PrintFile {
     static void writeDataToFile(ArrayList<Mototechnics> motoList, String fileAddress) throws IOException {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File(fileAddress)));
+            File file = new File(fileAddress);
+
+            FileWriter fWriter = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter writer = new BufferedWriter(fWriter);
 
             for (Mototechnics list : motoList) {
                 writer.write(list.getInfo() + "\n");
             }
+
             writer.close();
-            
+
         } catch (IOException e) {
             System.out.println("Unable to write data to file!");
             e.printStackTrace();

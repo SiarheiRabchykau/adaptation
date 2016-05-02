@@ -1,5 +1,6 @@
 package by.epam.motogarage.mototechnictype.motorcycle;
 
+import by.epam.motogarage.exceptions.ToSmallParam;
 import by.epam.motogarage.mototechnictype.Mototechnics;
 import by.epam.motogarage.mototechnictype.interfaces.Tuning;
 
@@ -30,13 +31,21 @@ public class SportBikes extends Mototechnics implements Tuning{
     @Override
     public void reduceWeight() {
         int raceWeight = (int) (this.getWeight()/1.02);
-        this.setWeight(raceWeight);
+        try {
+            this.setWeight(raceWeight);
+        } catch (ToSmallParam ex) {
+            System.out.println("Unable to reduce weight, because weight <= 0");
+        }
     }
 
     //override from interfaces
     @Override
     public void increasePower() {
         int racePower = (int) (this.getPower()*1.15);
-        this.setPower(racePower);
+        try {
+            this.setPower(racePower);
+        } catch (ToSmallParam ex) {
+            System.out.println("Unable to increase power, because power <= 0");
+        }
     }
 }

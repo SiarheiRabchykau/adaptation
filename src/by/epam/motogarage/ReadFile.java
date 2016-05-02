@@ -5,16 +5,13 @@ import by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
 import by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ReadFile {
-    public static ArrayList<Mototechnics> readFileWithMoto(ArrayList<Mototechnics> arrayMoto, String fileAdress) throws IOException {
+    public static ArrayList<Mototechnics> readFileWithMoto(ArrayList<Mototechnics> arrayMoto, String fileAddress) throws IOException {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileAdress));
+            BufferedReader reader = new BufferedReader(new FileReader(fileAddress));
 
         /* test.txt
         Brand;Model;Weight;Max_Speed;Power;Number_of_wheel;Case capacity;Cost
@@ -49,7 +46,9 @@ public class ReadFile {
 
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File with data not found!");
+            System.out.println("File with data not found! ");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return arrayMoto;
     }
