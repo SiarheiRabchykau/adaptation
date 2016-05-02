@@ -6,6 +6,7 @@ package by.epam.motogarage;
  2) Вынеси компаратор в отдельный класс в таске по ООП      -
 */
 
+import by.epam.motogarage.exceptions.MyException1;
 import by.epam.motogarage.mototechnictype.Mototechnics;
 import by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
@@ -23,7 +24,7 @@ public abstract class Main {
 
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
-        SportBikes blackbird = new SportBikes("Honda", "CBR1100xx", 300, 259, 163, 7500.50);
+        SportBikes blackbird = new SportBikes("Honda", "CBR1100xx", 300, 259, 2, 7500.50);
         blackbird.setCost(8000);
         blackbird.setIsNaked(true);
         blackbird.reduceWeight();
@@ -43,21 +44,23 @@ public abstract class Main {
         motoList.add(Grizzly700);
         motoList.add(european);
 
-        ArrayList<Mototechnics> newMotoList = new ReadFile().readFileWithMoto(motoList);
+        ReadFile.readFileWithMoto(motoList, "D:\\test.txt");
 
-        printArrayList(newMotoList);
+        printArrayList(motoList);
 
-        calculateCostGarage(newMotoList);
+        calculateCostGarage(motoList);
 
         System.out.println("\nSort by power");
         //sort by power
-        Collections.sort(newMotoList, new CustomComparatorArrayList());
+        Collections.sort(motoList, new CustomComparatorArrayList());
 
-        printArrayList(newMotoList);
+        printArrayList(motoList);
 
         enterPower();
 
-        findPower(newMotoList);
+        findPower(motoList);
+
+        motoList.remove(blackbird);
     }
 
 
