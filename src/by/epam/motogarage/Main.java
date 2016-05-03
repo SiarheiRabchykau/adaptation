@@ -31,6 +31,17 @@ package by.epam.motogarage;
 
  */
 
+
+/*
+Task:
+        Дополнить объектную модель, реализованную в рамках задания 1 второй лекции. Добавить чтение данных из следующих источников:
+        - из базы данных (базу данных можно выбрать самостоятельно) с использованием jdbc – драйвера;
+        - из xml-файла.
+        - из json-файла.
+        Все источники данных должны реализовывать общий интерфейс или наследовать общий абстрактный класс.
+*/
+
+
 import by.epam.motogarage.exceptions.ToSmallParam;
 import by.epam.motogarage.mototechnictype.Mototechnics;
 import by.epam.motogarage.mototechnictype.motorcycle.ATV;
