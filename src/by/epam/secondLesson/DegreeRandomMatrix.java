@@ -68,10 +68,10 @@ public class DegreeRandomMatrix {
         System.out.println("Enter matrix: ");
         Scanner sc = new Scanner(System.in);
 
-        matrix = new int[row][column];
+        matrix = new int[column][row];
 
-        for (int i = 0; i < column; i++) {
-            for (int j = 0; j < row; j++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 matrix[j][i] = sc.nextInt();
             }
         }
@@ -80,9 +80,9 @@ public class DegreeRandomMatrix {
 
     //random generate matrix
     private static void generateMatrix(int row, int column) {
-        matrix = new int[row][column];
-        for (int i = 0; i < column; i++) {
-            for (int j = 0; j < row; j++) {
+        matrix = new int[column][row];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 matrix[j][i] = (int) (Math.random() * 10);
             }
         }
