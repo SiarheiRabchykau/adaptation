@@ -1,39 +1,30 @@
 package main.java.by.epam.testLection.connections;
 
-/**
- * Created by Siarhei_Rabchykau on 5/3/2016.
- */
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.*;
+import java.io.File;
+import java.io.IOException;
+
 public class XmlDemo {
+    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        org.w3c.dom.Document document = documentBuilder.parse(new File("D:\\Source\\IDEA\\adaptation\\src\\main\\resources\\testxml.xml"));
+        document.normalizeDocument();
 
-    public static void main(String[] args) {
-        String url      = "jdbc:mysql://localhost:3306/motodb";
-        String login    = "root";
-        String pass     = "root";
-        String sql      = "select * from moto";
+        Element root = document.getDocumentElement();
 
+        NodeList employees = root.getElementsByTagName("employee");
+        for (int i = 0; i < employees.getLength(); i++){
+            Element item = (Element) employees.item(i);
+            item.getTagName();
+            String id = item.getAttribute("id");
+            Element first_name = (Element) item.getElementsByTagName("first_name").item(0);
+            System.out.println(String.format("id(%s) '%s' : '%s'", id, first_name.getTagName(), first_name.getTextContent()));
+        }
 
-/*
-
-        try (
-            Connection connection = DriverManager.getConnection(url, login, pass);
-            PreparedStatement statement = connection.preparedStatement(sql);
-        ) {
-            statement.setInt(1, 5);
-            ResultSet resultSet = statement.executeQuery();
-
-            int columnCount = resultSet.getMetaData().getColumnCount();
-
-            while (resultSet.next()) {
-                for (int i =1; i<=columnCount ;i++){
-                    resultSet.getMetaData().getColumnName(i);
-                    resultSet.getString(i);
-                }
-
-            }
-
-        } catch
-         (SQLException e) {
-            e.printStackTrace();
-        }*/
     }
 }

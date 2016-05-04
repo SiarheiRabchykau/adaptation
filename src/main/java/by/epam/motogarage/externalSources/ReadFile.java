@@ -1,4 +1,4 @@
-package main.java.by.epam.motogarage;
+package main.java.by.epam.motogarage.externalSources;
 
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
