@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<staff>
+	<employee id="100001">
+		<first_name>Gabriel</first_name>
+		<last_name>Gooovich</last_name>
+		<gender>M</gender>
+		<salary>
+			<currency>USD</currency>
+			<amount>1200</amount>
+		</salary>
+	</employee>
+	<employee id="100010">
+		<first_name>Nikola</first_name>
+		<last_name>Tesla</last_name>
+		<gender>M</gender>
+		<salary>
+			<currency>EUR</currency>
+			<amount>1600</amount>
+		</salary>
+	</employee>
+</staff>
