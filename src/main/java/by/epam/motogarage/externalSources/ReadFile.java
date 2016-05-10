@@ -8,10 +8,10 @@ import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ReadFile {
-    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) throws IOException {
+public class ReadFile implements GetDataFromExternalSources {
+    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("D:\\Source\\IDEA\\adaptation\\src\\main\\resources\\moto.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\moto.txt"));
 
             while (reader.ready()) {
                 try {
@@ -42,8 +42,9 @@ public class ReadFile {
 
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File with data not found! ");
+            System.out.println("File with data not found!");
         } catch (IOException e) {
+            System.out.println("Same error with TXT file");
             e.printStackTrace();
         }
         return arrayMoto;

@@ -1,7 +1,7 @@
 {
  "motoList": [
   {
-    "brand": "MV AgustaXML",
+    "brand": "MV Agusta JSON",
     "model": "F4i",
     "maxSpeed": 253,
     "weight": 190,
@@ -12,8 +12,8 @@
     "isNaked": false
   },
   {
-    "brand": "MV Agusta",
-    "model": "F4i",
+    "brand": "MV Agusta JSON",
+    "model": "Brutale",
     "maxSpeed": 211,
     "weight": 190,
     "power": 200,

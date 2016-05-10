@@ -16,7 +16,6 @@ import main.java.by.epam.motogarage.externalSources.ReadJDBC;
 import main.java.by.epam.motogarage.externalSources.ReadJSON;
 import main.java.by.epam.motogarage.externalSources.ReadXML;
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
-import main.java.by.epam.testLection.connections.JSON.Employee;
 
 import java.io.IOException;
 import java.util.*;
@@ -24,8 +23,6 @@ import java.util.*;
 public abstract class Main {
     private static int maxPower;
     private static int minPower;
-    private static String address = "D:\\Source\\IDEA\\adaptation\\src\\main\\resources\\moto.txt";
-
 
     public static void main(String[] args) throws IOException, ToSmallParam {
 
