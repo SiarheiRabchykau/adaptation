@@ -9,23 +9,13 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class ReadFile {
-    public static ArrayList<Mototechnics> readFileWithMoto(ArrayList<Mototechnics> arrayMoto, String fileAddress) throws IOException {
-        System.out.printf("Read data from %s ", fileAddress + "\n");
+    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) throws IOException {
         try {
-//            ClassLoader classLoader = getClass().getClassLoader();
-//            File file = new File(classLoader.getResource(fileAddress).getFile());
-            BufferedReader reader = new BufferedReader(new FileReader(fileAddress));
-
-        /* test.txt
-        Brand;Model;Weight;Max_Speed;Power;Number_of_wheel;Case capacity;Cost
-        Honda;Dio;60;80;5;2;0;500
-        Kawasaki;ZX6R;180;220;120;2;0;2000
-        Ducati;1198;171;300;157;2;0;35000
-         */
+            BufferedReader reader = new BufferedReader(new FileReader("D:\\Source\\IDEA\\adaptation\\src\\main\\resources\\moto.txt"));
 
             while (reader.ready()) {
                 try {
-                    String motoValues[] = reader.readLine().split(";");
+                    String motoValues[] = reader.readLine().split(" ");
                     String brand = motoValues[0];//brand
                     String model = motoValues[1];//model
                     int weight = Integer.parseInt(motoValues[2]);//weight
@@ -46,7 +36,7 @@ public class ReadFile {
                     }
 
                     arrayMoto.add(newMotoFromFile);
-                } catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     System.out.println("One of the parameters has wrong format");
                 }
 

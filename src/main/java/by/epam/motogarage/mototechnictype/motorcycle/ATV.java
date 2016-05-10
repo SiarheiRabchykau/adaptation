@@ -11,11 +11,4 @@ public class ATV extends Mototechnics {
         this.setWheels(4);
         this.setCaseCapacity(caseCapacity);
     }
-
-    //override abstract method from abstract class
-    @Override
-    public void makeSameNoise() {
-        System.out.println("Tr-tr-tr");
-    }
-
 }

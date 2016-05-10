@@ -1,4 +1,4 @@
-<xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <motorcycle>
 <!-- comment -->
  <moto>
@@ -9,7 +9,7 @@
   <power>180</power>
   <wheels>2</wheels>
   <case_cap>0</case_cap>
-  <cost>12000<cost>
+  <cost>12000</cost>
  </moto>
   <moto>
   <brand>Aprilia</brand>
@@ -19,8 +19,9 @@
   <power>7</power>
   <wheels>2</wheels>
   <case_cap>0</case_cap>
-  <cost>1200<cost>
+  <cost>1200</cost>
  </moto>
+<moto>
   <brand>Aprilia</brand>
   <model>Pegaso</model>
   <weight>230</weight>
@@ -28,6 +29,6 @@
   <power>45</power>
   <wheels>2</wheels>
   <case_cap>80</case_cap>
-  <cost>2500<cost>
+  <cost>2500</cost>
  </moto>
 </motorcycle>

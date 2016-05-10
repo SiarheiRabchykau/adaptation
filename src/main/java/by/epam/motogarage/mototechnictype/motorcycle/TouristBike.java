@@ -35,10 +35,4 @@ public class TouristBike extends Mototechnics implements Tuning{
             System.out.println("Unable to increase power, because power <= 0");
         }
     }
-
-    //override abstract method from abstract class
-    @Override
-    public void makeSameNoise() {
-        System.out.println("puf-puf-puf");
-    }
 }

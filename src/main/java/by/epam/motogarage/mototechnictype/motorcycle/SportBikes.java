@@ -21,12 +21,6 @@ public class SportBikes extends Mototechnics implements Tuning{
         }
     }
 
-    //override abstract method from abstract class
-    @Override
-    public void makeSameNoise() {
-        System.out.println("Vzhzhzhzh");
-    }
-
     //override from interfaces
     @Override
     public void reduceWeight() {

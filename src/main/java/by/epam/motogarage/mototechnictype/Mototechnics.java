@@ -2,7 +2,7 @@ package main.java.by.epam.motogarage.mototechnictype;
 
 import main.java.by.epam.motogarage.exceptions.ToSmallParam;
 
-public abstract class Mototechnics {
+public class Mototechnics {
     protected String brand;
     protected String model;
 
@@ -58,8 +58,8 @@ public abstract class Mototechnics {
         return weight;
     }
 
-    public void setWeight(int newWeight) throws ToSmallParam{
-        if (newWeight <= 0){
+    public void setWeight(int newWeight) throws ToSmallParam {
+        if (newWeight <= 0) {
             throw new ToSmallParam("Too low weight!");
         }
         this.weight = newWeight;
@@ -70,7 +70,7 @@ public abstract class Mototechnics {
     }
 
     public void setPower(int newPower) throws ToSmallParam {
-        if (newPower <= 0){
+        if (newPower <= 0) {
             throw new ToSmallParam("Too low power!");
         }
         this.power = newPower;
@@ -115,9 +115,7 @@ public abstract class Mototechnics {
                 + " Is it naked bike: " + this.isNaked;
     }
 
-    public void doWheelie(){
+    public void doWheelie() {
         System.out.println("Hey!" + this.model + " is not sportbike! It's can't do wheelie!");
     }
-
-    public abstract void makeSameNoise();
 }

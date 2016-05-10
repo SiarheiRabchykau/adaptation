@@ -1,0 +1,27 @@
+{
+ "staff": [
+	{
+		"id": 100001,
+		"first_name": "Gabriel",
+		"last_name": "Gooovich",
+		"gender": "M",
+		"salary": {
+			"currency": "USD",
+			"amount": 1200
+		
+		}
+	},
+		{
+		"id": 100010,
+		"first_name": "Mikola",
+		"last_name": "Tesla",
+		"gender": "M",
+		"salary": {
+			"currency": "EUR",
+			"amount": 1600
+		
+		}
+	}
+ ]
+}
+

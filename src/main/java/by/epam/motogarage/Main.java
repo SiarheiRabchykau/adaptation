@@ -13,10 +13,10 @@ Task:
 import main.java.by.epam.motogarage.exceptions.ToSmallParam;
 import main.java.by.epam.motogarage.externalSources.ReadFile;
 import main.java.by.epam.motogarage.externalSources.ReadJDBC;
+import main.java.by.epam.motogarage.externalSources.ReadJSON;
+import main.java.by.epam.motogarage.externalSources.ReadXML;
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
-import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
-import main.java.by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
-import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
+import main.java.by.epam.testLection.connections.JSON.Employee;
 
 import java.io.IOException;
 import java.util.*;
@@ -24,77 +24,33 @@ import java.util.*;
 public abstract class Main {
     private static int maxPower;
     private static int minPower;
-    private static String address = "D:\\test.txt";
+    private static String address = "D:\\Source\\IDEA\\adaptation\\src\\main\\resources\\moto.txt";
 
 
     public static void main(String[] args) throws IOException, ToSmallParam {
 
-
-
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
-        SportBikes blackbird = new SportBikes("Honda", "CBR1100xx", 300, 259, 163, 7500.50);
-        blackbird.setCost(8000);
-        blackbird.setIsNaked(true);
-        blackbird.reduceWeight();
-        blackbird.increasePower();
-        blackbird.doWheelie();
-        blackbird.makeSameNoise();
+        ReadFile.read(motoList);
+        ReadJDBC.read(motoList);
+        ReadXML.read(motoList);
+        ReadJSON.read(motoList);
 
-/*        try {
-            blackbird.setPower(0);
-        } catch (ToSmallParam  e){
-            e.printStackTrace();
-        }
+        printArrayList(motoList);
 
-        try {
-            blackbird.setWeight(0);
-        } catch (ToSmallParam  e){
-            e.printStackTrace();
-        }*/
+        calculateCostGarage(motoList);
 
-
-        TouristBike european = new TouristBike("Honda", "Pan European", 200, 350, 140, 2, 40, 3000);
-        european.setIsNaked(false);
-        european.doWheelie();
-
-        SportBikes cbr1000rr = new SportBikes("Honda", "CBR1000rr", 299, 200, 170, 8000);
-        ATV Grizzly700 = new ATV("Yamaha", "Grizzly 700", 120, 400, 70, 15, 10000);
-
-        motoList.add(blackbird);
-        motoList.add(cbr1000rr);
-        motoList.add(Grizzly700);
-        motoList.add(european);
-
-
-        ReadJDBC.readFromDB(motoList);
-
-        ReadFile.readFileWithMoto(motoList, address);
-/*
-        try {
-            printArrayList(motoList);
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            calculateCostGarage(motoList);
-        } catch (ArithmeticException ex) {
-            ex.printStackTrace();
-        }*/
-
-        System.out.println("\nSort by power");
+        System.out.println("\nSort by weight");
 
         //sort by weight
         Collections.sort(motoList, new CustomComparatorArrayList());
 
         printArrayList(motoList);
 
-
         enterPower();
 
         findPower(motoList);
-        PrintFile.writeDataToFile(motoList, "D:\\out.txt");
+        //PrintFile.writeDataToFile(motoList, "D:\\out.txt");
 
     }
 
@@ -126,7 +82,6 @@ public abstract class Main {
     }
 
     private static void findPower(ArrayList<Mototechnics> list) {
-        System.out.println(list.size());
         for (Mototechnics m : list) {
             if (m.getPower() >= minPower && m.getPower() <= maxPower) {
                 System.out.printf("Power of %s: %s", m.getModel(), m.getPower());

@@ -1,0 +1,26 @@
+{
+ "motoList": [
+  {
+    "brand": "MV AgustaXML",
+    "model": "F4i",
+    "maxSpeed": 253,
+    "weight": 190,
+    "power": 200,
+    "wheels": 2,
+    "caseCapacity": 0,
+    "cost": 18963.0,
+    "isNaked": false
+  },
+  {
+    "brand": "MV Agusta",
+    "model": "F4i",
+    "maxSpeed": 211,
+    "weight": 190,
+    "power": 200,
+    "wheels": 2,
+    "caseCapacity": 0,
+    "cost": 13893.0,
+    "isNaked": false
+  }
+ ]
+}
