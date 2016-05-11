@@ -9,16 +9,16 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ReadJDBC implements GetDataFromExternalSources {
-    private static final String URL = "jdbc:mysql://localhost:3306/motodb";
+    private static final String URL = "jdbc:mysql://localhost:3306/motodb?useSSL=false";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 
-    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
+    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto)  {
 
         try {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            java.sql.Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from moto");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM moto");
 
             while (resultSet.next()) {
 
@@ -43,11 +43,41 @@ public class ReadJDBC implements GetDataFromExternalSources {
                 }
                 arrayMoto.add(newMotoFromDB);
             }
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Unable to connect to DB");
+            e.printStackTrace();
         }
-
         return arrayMoto;
+    }
+
+    public static void write(ArrayList<Mototechnics> arrayMoto) {
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            String SQL = "INSERT INTO moto (brand, model, weight, max_speed, power, wheel, case_cap, cost) " +
+                    "VALUES (?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            connection.setAutoCommit(false);
+
+
+            for(int i = 0; i < arrayMoto.size(); i++){
+                statement.setString(1, arrayMoto.get(i).getBrand());
+                statement.setString(2, arrayMoto.get(i).getModel());
+                statement.setInt(3, arrayMoto.get(i).getMaxSpeed());
+                statement.setInt(4, arrayMoto.get(i).getWeight());
+                statement.setInt(5, arrayMoto.get(i).getWheels());
+                statement.setInt(6, arrayMoto.get(i).getPower());
+                statement.setInt(7, arrayMoto.get(i).getCaseCapacity());
+                statement.setDouble(8, arrayMoto.get(i).getCost());
+            statement.addBatch();
+            }
+
+            statement.executeBatch();
+            connection.commit();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Unable to connect to DB for write");
+            e.printStackTrace();
+        }
     }
 }

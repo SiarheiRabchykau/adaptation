@@ -2,15 +2,14 @@ package main.java.by.epam.motogarage.externalSources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonWriter;
 import main.java.by.epam.motogarage.Garage;
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ReadJSON implements GetDataFromExternalSources {
@@ -26,7 +25,7 @@ public class ReadJSON implements GetDataFromExternalSources {
             for (Mototechnics m : newMotoList) {
                 String brand = m.getBrand();
                 String model = m.getModel();
-                int max_speed = m.getMaxSpeed();
+                int maxSpeed = m.getMaxSpeed();
                 int weight = m.getWeight();
                 int wheels = m.getWheels();
                 int power = m.getPower();
@@ -36,12 +35,12 @@ public class ReadJSON implements GetDataFromExternalSources {
                 Mototechnics newMotoFromJSON;
                 if (case_cap > 0) {
                     if (wheels > 3) {
-                        newMotoFromJSON = new ATV(brand, model, max_speed, weight, power, case_cap, cost);
+                        newMotoFromJSON = new ATV(brand, model, maxSpeed, weight, power, case_cap, cost);
                     } else {
-                        newMotoFromJSON = new TouristBike(brand, model, max_speed, weight, power, wheels, case_cap, cost);
+                        newMotoFromJSON = new TouristBike(brand, model, maxSpeed, weight, power, wheels, case_cap, cost);
                     }
                 } else {
-                    newMotoFromJSON = new SportBikes(brand, model, max_speed, weight, power, cost);
+                    newMotoFromJSON = new SportBikes(brand, model, maxSpeed, weight, power, cost);
                 }
                 arrayMoto.add(newMotoFromJSON);
             }
@@ -52,4 +51,30 @@ public class ReadJSON implements GetDataFromExternalSources {
 
         return arrayMoto;
     }
+
+    public static void write(ArrayList<Mototechnics> arrayMoto)  {
+        try {
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String s = gson.toJson(arrayMoto);
+            System.out.println(s);
+
+            FileWriter fWriter = new FileWriter("D:\\TXTmoto.txt");
+            BufferedWriter writer = new BufferedWriter(fWriter);
+
+            for (Mototechnics list : arrayMoto) {
+                writer.write(list.getInfo() + "\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Unable to write data to file!");
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 }
