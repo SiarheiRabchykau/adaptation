@@ -1,7 +1,75 @@
 package main.java.by.epam.motogarage.externalSources;
 
-/**
- * Created by Siarhei_Rabchykau on 5/3/2016.
- */
+import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
+import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
+import main.java.by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
+import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
 public class ReadXML implements GetDataFromExternalSources {
+    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = dbf.newDocumentBuilder();
+            org.w3c.dom.Document doc = docBuilder.parse(new File("src\\main\\resources\\XMLwithmoto.xml"));
+            doc.normalizeDocument();
+
+
+            Element root = doc.getDocumentElement();
+
+            NodeList moto = root.getElementsByTagName("moto");
+            for (int i = 0; i < moto.getLength(); i++) {
+                Element item = (Element) moto.item(i);
+                Element brand_element = (Element) item.getElementsByTagName("brand").item(0);
+                Element model_element = (Element) item.getElementsByTagName("model").item(0);
+                Element weight_element = (Element) item.getElementsByTagName("weight").item(0);
+                Element max_speed_element = (Element) item.getElementsByTagName("max_speed").item(0);
+                Element power_element = (Element) item.getElementsByTagName("power").item(0);
+                Element wheels_element = (Element) item.getElementsByTagName("wheels").item(0);
+                Element case_cap_element = (Element) item.getElementsByTagName("case_cap").item(0);
+                Element cost_element = (Element) item.getElementsByTagName("cost").item(0);
+
+                String brand = brand_element.getTextContent();
+                String model = model_element.getTextContent();
+                int weight = Integer.parseInt(weight_element.getTextContent());
+                int max_speed = Integer.parseInt(max_speed_element.getTextContent());
+                int power = Integer.parseInt(power_element.getTextContent());
+                int wheels = Integer.parseInt(wheels_element.getTextContent());
+                int case_cap = Integer.parseInt(case_cap_element.getTextContent());
+                int cost = Integer.parseInt(cost_element.getTextContent());
+
+
+                Mototechnics newMotoFromDB;
+                if (case_cap > 0) {
+                    if (wheels > 3) {
+                        newMotoFromDB = new ATV(brand, model, max_speed, weight, power, case_cap, cost);
+                    } else {
+                        newMotoFromDB = new TouristBike(brand, model, max_speed, weight, power, wheels, case_cap, cost);
+                    }
+                } else {
+                    newMotoFromDB = new SportBikes(brand, model, max_speed, weight, power, cost);
+                }
+                arrayMoto.add(newMotoFromDB);
+
+            }
+
+
+        } catch (ParserConfigurationException | SAXException e) {
+            System.out.println("Unable to parse file!");
+        } catch (IOException e) {
+            System.out.println("Unable to read file!");
+        }
+
+        return arrayMoto;
+    }
 }
