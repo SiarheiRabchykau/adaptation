@@ -29,9 +29,15 @@ public abstract class Main {
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
         ReadFile.read(motoList);
-        ReadJDBC.read(motoList);
-        ReadXML.read(motoList);
+        //ReadJDBC.read(motoList);
+        //ReadXML.read(motoList);
         ReadJSON.read(motoList);
+
+        ReadFile.write(motoList);
+        //ReadJDBC.write(motoList);
+        //ReadXML.write(motoList);
+        ReadJSON.write(motoList);
+
 
         printArrayList(motoList);
 
@@ -42,12 +48,14 @@ public abstract class Main {
         //sort by weight
         Collections.sort(motoList, new CustomComparatorArrayList());
 
+
+
         printArrayList(motoList);
 
         enterPower();
 
         findPower(motoList);
-        //PrintFile.writeDataToFile(motoList, "D:\\out.txt");
+
 
     }
 

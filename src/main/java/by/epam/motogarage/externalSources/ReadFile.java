@@ -22,14 +22,15 @@ public class ReadFile implements GetDataFromExternalSources {
                     int maxSpeed = Integer.parseInt(motoValues[3]);//max speed
                     int power = Integer.parseInt(motoValues[4]);//power
                     int wheels = Integer.parseInt(motoValues[5]);//number of wheel
-                    int caseCapacity = Integer.parseInt(motoValues[6]);//case capacity
+                    int case_cap = Integer.parseInt(motoValues[6]);//case capacity
                     double cost = Double.parseDouble(motoValues[7]);//cost
+
                     Mototechnics newMotoFromFile;
-                    if (caseCapacity > 0) {
+                    if (case_cap > 0) {
                         if (wheels > 3) {
-                            newMotoFromFile = new ATV(brand, model, maxSpeed, weight, power, caseCapacity, cost);
+                            newMotoFromFile = new ATV(brand, model, maxSpeed, weight, power, case_cap, cost);
                         } else {
-                            newMotoFromFile = new TouristBike(brand, model, maxSpeed, weight, power, wheels, caseCapacity, cost);
+                            newMotoFromFile = new TouristBike(brand, model, maxSpeed, weight, power, wheels, case_cap, cost);
                         }
                     } else {
                         newMotoFromFile = new SportBikes(brand, model, maxSpeed, weight, power, cost);
@@ -49,4 +50,25 @@ public class ReadFile implements GetDataFromExternalSources {
         }
         return arrayMoto;
     }
+
+    public static void write(ArrayList<Mototechnics> motoList) throws IOException {
+        try {
+            File file = new File("D:\\TXTmoto.txt");
+
+            FileWriter fWriter = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter writer = new BufferedWriter(fWriter);
+
+            for (Mototechnics list : motoList) {
+                writer.write(list.getInfo() + "\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Unable to write data to file!");
+            e.printStackTrace();
+        }
+    }
+
+
 }

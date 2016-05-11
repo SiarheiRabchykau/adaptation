@@ -18,9 +18,9 @@ public class XmlDemo {
         Element root = document.getDocumentElement();
 
         NodeList employees = root.getElementsByTagName("employee");
+        //System.out.println(employees.item(1));
         for (int i = 0; i < employees.getLength(); i++){
             Element item = (Element) employees.item(i);
-            item.getTagName();
             String id = item.getAttribute("id");
             Element first_name = (Element) item.getElementsByTagName("first_name").item(0);
             System.out.println(String.format("id(%s) '%s' : '%s'", id, first_name.getTagName(), first_name.getTextContent()));

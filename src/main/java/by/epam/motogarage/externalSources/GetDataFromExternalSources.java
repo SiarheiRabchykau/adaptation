@@ -4,14 +4,14 @@ import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
 
 import java.util.ArrayList;
 
-public interface GetDataFromExternalSources {
-    static ArrayList<Mototechnics> read(ArrayList<Mototechnics> mototechnicsArrayList){
+interface GetDataFromExternalSources {
+    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> mototechnicsArrayList){
         return mototechnicsArrayList;
     }
 
-/*    static ArrayList<Mototechnics> print(ArrayList<Mototechnics> mototechnicsArrayList){
+    public static ArrayList<Mototechnics> create(ArrayList<Mototechnics> mototechnicsArrayList){
         return mototechnicsArrayList;
-    }*/
+    }
 }
 
 //create, read, update, delete

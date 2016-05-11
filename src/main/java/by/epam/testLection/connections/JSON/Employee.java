@@ -1,13 +1,13 @@
-package main.java.by.epam.testLection.connections.JSON;
+package main.java.by.epam.testLection.connections.json;
+
 
 public class Employee {
 
     private int id;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String gender;
-    private String currency;
-    private int amount;
+    private Salary salary;
 
     public int getId() {
         return id;
@@ -18,42 +18,34 @@ public class Employee {
     }
 
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.first_name = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return last_name;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.last_name = lastName;
-    }
-
-    public String getGender() {
-        return gender;
+        this.lastName = lastName;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setSalary(Salary salary) {
+        this.salary = salary;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public Salary getSalary() {
+        return salary;
     }
 }

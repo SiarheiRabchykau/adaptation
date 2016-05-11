@@ -42,8 +42,8 @@ public class GsonTest {
         Company company = new Company();
         company.setStaff(staff);
         System.out.printf(gson.toJson(company));*/
-        Company company = gson.fromJson(file, Company.class);
-        System.out.println(gson.toJson(company));
+/*        Company company = gson.fromJson(file, Company.class);
+        System.out.println(gson.toJson(company));*/
     }
 
 /*    private static Employee getEmployee() {
