@@ -4,7 +4,7 @@
   <moto>
   <brand>ApriliaXML</brand>
   <model>RS125</model>
-  <max_speed>150</max_speed>
+  <maxSpeed>150</maxSpeed>
   <weight>130</weight>
   <power>7</power>
   <wheels>2</wheels>
@@ -15,7 +15,7 @@
 <moto>
   <brand>ApriliaXML</brand>
   <model>Pegaso</model>
-  <max_speed>190</max_speed>
+  <maxSpeed>190</maxSpeed>
   <weight>230</weight>
   <power>45</power>
   <wheels>2</wheels>

@@ -5,17 +5,19 @@ import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class DataFromTXT implements DataFromExternalSources {
-
-    private static String txtToReadFilePath = "src\\main\\resources\\TXTwithmoto.txt";
-     private static String txtToWriteFilePath = "D:\\testRW\\TXTmoto.txt";
-
-    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
+/**
+ * Created by Siarhei_Rabchykau on 5/13/2016.
+ */
+public class IReaderTXT implements IReader {
+    public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToReadTXT) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(txtToReadFilePath));
+            BufferedReader reader = new BufferedReader(new FileReader(pathToReadTXT));
 
             while (reader.ready()) {
                 try {
@@ -55,23 +57,4 @@ public class DataFromTXT implements DataFromExternalSources {
         }
         return arrayMoto;
     }
-
-    public static void create(ArrayList<Mototechnics> motoList){
-        try {
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter(txtToWriteFilePath));
-
-            for (Mototechnics list : motoList) {
-                writer.write(list.getInfo() + "\n");
-            }
-
-            writer.close();
-
-        } catch (IOException e) {
-            System.out.println("Unable to write data to file!");
-            e.printStackTrace();
-        }
-    }
-
-
 }

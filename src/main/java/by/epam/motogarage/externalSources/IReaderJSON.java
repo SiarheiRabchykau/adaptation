@@ -8,18 +8,19 @@ import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 
-public class DataFromJSON implements DataFromExternalSources {
-
-    private static String jsonToReadFilePath = "src\\main\\resources\\JSONwithmoto.json";
-    private static String jsonToWriteFilePath = "D:\\testRW\\JSONmoto.json";
-
-    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
+/**
+ * Created by Siarhei_Rabchykau on 5/13/2016.
+ */
+public class IReaderJSON implements IReader {
+    public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToFile) {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonToReadFilePath));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile));
             Garage garage = gson.fromJson(bufferedReader, Garage.class);
 
             ArrayList<Mototechnics> newMotoList = new ArrayList<>();
@@ -53,23 +54,5 @@ public class DataFromJSON implements DataFromExternalSources {
         }
 
         return arrayMoto;
-    }
-
-    public static void create(ArrayList<Mototechnics> arrayMoto) {
-        try {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        BufferedWriter writer = new BufferedWriter(new FileWriter(jsonToWriteFilePath));
-        Garage garage = new Garage();
-        garage.setMotoList(arrayMoto);
-
-        String s = gson.toJson(garage, Garage.class);
-
-        writer.write(s);
-        writer.close();
-
-        } catch (IOException e) {
-            System.out.println("Unable to write JSON data to file!");
-            e.printStackTrace();
-        }
     }
 }

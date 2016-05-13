@@ -11,10 +11,7 @@ Task:
 
 
 import main.java.by.epam.motogarage.exceptions.ToSmallParam;
-import main.java.by.epam.motogarage.externalSources.DataFromTXT;
-import main.java.by.epam.motogarage.externalSources.DataFromJDBC;
-import main.java.by.epam.motogarage.externalSources.DataFromJSON;
-import main.java.by.epam.motogarage.externalSources.DataFromXML;
+import main.java.by.epam.motogarage.externalSources.*;
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
 
 import java.io.IOException;
@@ -23,20 +20,43 @@ import java.util.*;
 public abstract class Main {
     private static int maxPower;
     private static int minPower;
+    private static final String URL = "jdbc:mysql://localhost:3306/motodb?useSSL=false";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static String pathToReadJSON = "src\\main\\resources\\JSONwithmoto.json";
+    private static String pathToWriteJSON = "D:\\testRW\\JSONmoto.json";
+    private static String pathToReadXML = "src\\main\\resources\\XMLwithmoto.xml";
+    private static String pathToWriteXML = "D:\\testRW\\XMLmoto.xml";
+    private static String pathToReadTXT = "src\\main\\resources\\TXTwithmoto.txt";
+    private static String pathToWriteTXT = "D:\\testRW\\TXTmoto.txt";
 
     public static void main(String[] args) throws IOException, ToSmallParam {
-
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
-        DataFromTXT.read(motoList);
-        DataFromJDBC.read(motoList);
-        DataFromXML.read(motoList);
-        DataFromJSON.read(motoList);
+        IReaderJDBC iReaderJDBC = new IReaderJDBC();
+        IWriterJDBC iWriterJDBC = new IWriterJDBC();
 
-        DataFromTXT.create(motoList);
-        DataFromJDBC.create(motoList);
-        DataFromXML.create(motoList);
-        DataFromJSON.create(motoList);
+        IReaderJSON iReaderJSON = new IReaderJSON();
+        IWriterJSON iWriterJSON = new IWriterJSON();
+
+        IReaderXML iReaderXML = new IReaderXML();
+        IWriterXML iWriterXML = new IWriterXML();
+
+        IReaderTXT iReaderTXT = new IReaderTXT();
+        IWriterTXT iWriterTXT = new IWriterTXT();
+
+
+        //read data
+        iReaderJDBC.read(motoList, URL, USERNAME, PASSWORD);
+        iReaderJSON.read(motoList, pathToReadJSON);
+        iReaderXML.read(motoList, pathToReadXML);
+        iReaderTXT.read(motoList, pathToReadTXT);
+
+        //write data to file
+        iWriterJDBC.write(motoList, URL, USERNAME, PASSWORD);
+        iWriterJSON.write(motoList, pathToWriteJSON);
+        iWriterXML.write(motoList, pathToWriteXML);
+        iWriterTXT.write(motoList, pathToWriteTXT);
 
         printArrayList(motoList);
 //
