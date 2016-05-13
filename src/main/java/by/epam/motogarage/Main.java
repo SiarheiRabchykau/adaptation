@@ -11,10 +11,10 @@ Task:
 
 
 import main.java.by.epam.motogarage.exceptions.ToSmallParam;
-import main.java.by.epam.motogarage.externalSources.ReadFile;
-import main.java.by.epam.motogarage.externalSources.ReadJDBC;
-import main.java.by.epam.motogarage.externalSources.ReadJSON;
-import main.java.by.epam.motogarage.externalSources.ReadXML;
+import main.java.by.epam.motogarage.externalSources.DataFromTXT;
+import main.java.by.epam.motogarage.externalSources.DataFromJDBC;
+import main.java.by.epam.motogarage.externalSources.DataFromJSON;
+import main.java.by.epam.motogarage.externalSources.DataFromXML;
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
 
 import java.io.IOException;
@@ -28,35 +28,30 @@ public abstract class Main {
 
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
-        ReadFile.read(motoList);
-        //ReadJDBC.read(motoList);
-        //ReadXML.read(motoList);
-        ReadJSON.read(motoList);
+        DataFromTXT.read(motoList);
+        DataFromJDBC.read(motoList);
+        DataFromXML.read(motoList);
+        DataFromJSON.read(motoList);
 
-        ReadFile.write(motoList);
-        //ReadJDBC.write(motoList);
-        //ReadXML.write(motoList);
-        ReadJSON.write(motoList);
-
-
-        printArrayList(motoList);
-
-        calculateCostGarage(motoList);
-
-        System.out.println("\nSort by weight");
-
-        //sort by weight
-        Collections.sort(motoList, new CustomComparatorArrayList());
-
-
+        DataFromTXT.create(motoList);
+        DataFromJDBC.create(motoList);
+        DataFromXML.create(motoList);
+        DataFromJSON.create(motoList);
 
         printArrayList(motoList);
-
-        enterPower();
-
-        findPower(motoList);
-
-
+//
+//        calculateCostGarage(motoList);
+//
+//        System.out.println("\nSort by weight");
+//
+//        //sort by weight
+//        Collections.sort(motoList, new CustomComparatorArrayList());
+//
+//        printArrayList(motoList);
+//
+//        enterPower();
+//
+//        findPower(motoList);
     }
 
 

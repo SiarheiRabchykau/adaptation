@@ -8,18 +8,22 @@ import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ReadFile implements GetDataFromExternalSources {
+public class DataFromTXT implements DataFromExternalSources {
+
+    private static String txtToReadFilePath = "src\\main\\resources\\TXTwithmoto.txt";
+     private static String txtToWriteFilePath = "D:\\testRW\\TXTmoto.txt";
+
     public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\moto.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(txtToReadFilePath));
 
             while (reader.ready()) {
                 try {
                     String motoValues[] = reader.readLine().split(" ");
                     String brand = motoValues[0];//brand
                     String model = motoValues[1];//model
-                    int weight = Integer.parseInt(motoValues[2]);//weight
-                    int maxSpeed = Integer.parseInt(motoValues[3]);//max speed
+                    int maxSpeed = Integer.parseInt(motoValues[2]);//max speed
+                    int weight = Integer.parseInt(motoValues[3]);//weight
                     int power = Integer.parseInt(motoValues[4]);//power
                     int wheels = Integer.parseInt(motoValues[5]);//number of wheel
                     int case_cap = Integer.parseInt(motoValues[6]);//case capacity
@@ -44,6 +48,7 @@ public class ReadFile implements GetDataFromExternalSources {
             }
         } catch (FileNotFoundException e) {
             System.out.println("File with data not found!");
+            e.printStackTrace();
         } catch (IOException e) {
             System.out.println("Same error with TXT file");
             e.printStackTrace();
@@ -51,12 +56,10 @@ public class ReadFile implements GetDataFromExternalSources {
         return arrayMoto;
     }
 
-    public static void write(ArrayList<Mototechnics> motoList) throws IOException {
+    public static void create(ArrayList<Mototechnics> motoList){
         try {
-            File file = new File("D:\\TXTmoto.txt");
 
-            FileWriter fWriter = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter writer = new BufferedWriter(fWriter);
+            BufferedWriter writer = new BufferedWriter(new FileWriter(txtToWriteFilePath));
 
             for (Mototechnics list : motoList) {
                 writer.write(list.getInfo() + "\n");

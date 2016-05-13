@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<motorcycle>
+<motoList>
 <!-- comment -->
- <moto>
-  <brand>ApriliaXML</brand>
-  <model>RSV1000</model>
-  <weight>190</weight>
-  <max_speed>299</max_speed>
-  <power>180</power>
-  <wheels>2</wheels>
-  <case_cap>0</case_cap>
-  <cost>12000</cost>
- </moto>
   <moto>
   <brand>ApriliaXML</brand>
   <model>RS125</model>
-  <weight>130</weight>
   <max_speed>150</max_speed>
+  <weight>130</weight>
   <power>7</power>
   <wheels>2</wheels>
   <case_cap>0</case_cap>
+  <caseCapacity>0</caseCapacity>
   <cost>1200</cost>
  </moto>
 <moto>
   <brand>ApriliaXML</brand>
   <model>Pegaso</model>
-  <weight>230</weight>
   <max_speed>190</max_speed>
+  <weight>230</weight>
   <power>45</power>
   <wheels>2</wheels>
-  <case_cap>80</case_cap>
+  <caseCapacity>80</caseCapacity>
   <cost>2500</cost>
  </moto>
-</motorcycle>
+</motoList>

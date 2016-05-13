@@ -2,7 +2,6 @@ package main.java.by.epam.motogarage.externalSources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonWriter;
 import main.java.by.epam.motogarage.Garage;
 import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
 import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
@@ -12,12 +11,16 @@ import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ReadJSON implements GetDataFromExternalSources {
+public class DataFromJSON implements DataFromExternalSources {
+
+    private static String jsonToReadFilePath = "src\\main\\resources\\JSONwithmoto.json";
+    private static String jsonToWriteFilePath = "D:\\testRW\\JSONmoto.json";
+
     public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto) {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\JSONwithmoto.json"));
-            Garage garage = gson.fromJson(br, Garage.class);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonToReadFilePath));
+            Garage garage = gson.fromJson(bufferedReader, Garage.class);
 
             ArrayList<Mototechnics> newMotoList = new ArrayList<>();
             newMotoList.addAll(garage.getMotoList());
@@ -46,35 +49,27 @@ public class ReadJSON implements GetDataFromExternalSources {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("Unable to read JSON file!!");
+            System.out.println("Unable to read JSON file!");
         }
 
         return arrayMoto;
     }
 
-    public static void write(ArrayList<Mototechnics> arrayMoto)  {
+    public static void create(ArrayList<Mototechnics> arrayMoto) {
         try {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(jsonToWriteFilePath));
+        Garage garage = new Garage();
+        garage.setMotoList(arrayMoto);
 
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String s = gson.toJson(arrayMoto);
-            System.out.println(s);
+        String s = gson.toJson(garage, Garage.class);
 
-            FileWriter fWriter = new FileWriter("D:\\TXTmoto.txt");
-            BufferedWriter writer = new BufferedWriter(fWriter);
-
-            for (Mototechnics list : arrayMoto) {
-                writer.write(list.getInfo() + "\n");
-            }
-
-            writer.close();
+        writer.write(s);
+        writer.close();
 
         } catch (IOException e) {
-            System.out.println("Unable to write data to file!");
+            System.out.println("Unable to write JSON data to file!");
             e.printStackTrace();
         }
-
-
     }
-
-
 }

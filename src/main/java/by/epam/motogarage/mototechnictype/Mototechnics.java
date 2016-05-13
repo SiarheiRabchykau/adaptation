@@ -14,8 +14,6 @@ public class Mototechnics {
 
     protected double cost;
 
-    protected boolean isNaked;
-
     protected Mototechnics(String brand, String model,
                            int maxSpeed, int weight, int power,
                            double cost) {
@@ -100,19 +98,10 @@ public class Mototechnics {
         this.cost = newCost;
     }
 
-    public boolean getIsNaked() {
-        return isNaked;
-    }
-
-    public void setIsNaked(boolean newNaked) {
-        this.isNaked = newNaked;
-    }
-
     public String getInfo() {
         return "Brand: " + this.brand + " Model: " + this.model + " Max Speed: " + this.maxSpeed
                 + " Weight: " + this.weight + " Power: " + this.power + " Number of wheel: " + this.wheels
-                + " Case capacity: " + this.caseCapacity + " Cost: " + this.cost
-                + " Is it naked bike: " + this.isNaked;
+                + " Case capacity: " + this.caseCapacity + " Cost: " + this.cost;
     }
 
     public void doWheelie() {
