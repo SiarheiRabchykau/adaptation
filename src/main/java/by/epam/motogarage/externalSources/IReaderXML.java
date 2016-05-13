@@ -15,9 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by Siarhei_Rabchykau on 5/13/2016.
- */
 public class IReaderXML implements IReader {
     public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToReadXML) {
         try {

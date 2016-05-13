@@ -10,9 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by Siarhei_Rabchykau on 5/13/2016.
- */
 public class IWriterJSON implements IWriter {
     public void write(ArrayList<Mototechnics> arrayMoto, String pathToWrite) {
         try {

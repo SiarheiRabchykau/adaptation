@@ -7,9 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by Siarhei_Rabchykau on 5/13/2016.
- */
 public class IWriterTXT implements IWriter {
     public void write(ArrayList<Mototechnics> motoList, String pathToWriteTXT) {
         try {

@@ -13,9 +13,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-/**
- * Created by Siarhei_Rabchykau on 5/13/2016.
- */
 public class IReaderJSON implements IReader {
     public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToFile) {
         try {

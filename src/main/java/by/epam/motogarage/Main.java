@@ -20,13 +20,17 @@ import java.util.*;
 public abstract class Main {
     private static int maxPower;
     private static int minPower;
+
     private static final String URL = "jdbc:mysql://localhost:3306/motodb?useSSL=false";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
+
     private static String pathToReadJSON = "src\\main\\resources\\JSONwithmoto.json";
     private static String pathToWriteJSON = "D:\\testRW\\JSONmoto.json";
+
     private static String pathToReadXML = "src\\main\\resources\\XMLwithmoto.xml";
     private static String pathToWriteXML = "D:\\testRW\\XMLmoto.xml";
+
     private static String pathToReadTXT = "src\\main\\resources\\TXTwithmoto.txt";
     private static String pathToWriteTXT = "D:\\testRW\\TXTmoto.txt";
 

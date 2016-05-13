@@ -8,9 +8,6 @@ import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * Created by Siarhei_Rabchykau on 5/13/2016.
- */
 public class IReaderJDBC implements IReader {
 
     public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String url, String username, String password) {
