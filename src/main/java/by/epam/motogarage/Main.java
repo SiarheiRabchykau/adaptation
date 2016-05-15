@@ -51,13 +51,13 @@ public abstract class Main {
 
 
         //read data
-        iReaderJDBC.read(motoList, URL, USERNAME, PASSWORD);
+        //iReaderJDBC.read(motoList, URL, USERNAME, PASSWORD);
         iReaderJSON.read(motoList, pathToReadJSON);
         iReaderXML.read(motoList, pathToReadXML);
         iReaderTXT.read(motoList, pathToReadTXT);
 
         //write data to file
-        iWriterJDBC.write(motoList, URL, USERNAME, PASSWORD);
+        //iWriterJDBC.write(motoList, URL, USERNAME, PASSWORD);
         iWriterJSON.write(motoList, pathToWriteJSON);
         iWriterXML.write(motoList, pathToWriteXML);
         iWriterTXT.write(motoList, pathToWriteTXT);

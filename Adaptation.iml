@@ -11,5 +11,7 @@
     <orderEntry type="library" name="com.googlecode.json-simple:json-simple:1.1.1" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:6.0.2" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.6.2" level="project" />
+    <orderEntry type="library" name="calculator-1.0" level="project" />
+    <orderEntry type="library" name="org.testng:testng:6.8" level="project" />
   </component>
 </module>
