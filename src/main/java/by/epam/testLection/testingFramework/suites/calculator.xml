@@ -1,0 +1,38 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Calculator" verbose="1" parallel="tests" thread-count="2">
+
+    <test name="Sum and sub test">
+        <groups>
+            <run>
+                <include name="A"></include>
+                <include name="sub"></include>
+                <include name="base"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="main.java.by.epam.testLection.testingFramework.SumAndSubCalculatorTest">
+                <methods>
+                    <include name="oneValue.*"></include>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+    <!---->
+    <test name="Trigonometry">
+
+        <groups>
+            <run>
+                <include name="a"></include>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="main.java.by.epam.testLection.testingFramework.TrigomometryTest">
+                <methods>
+                    <include name="sin0"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

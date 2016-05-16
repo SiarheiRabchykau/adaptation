@@ -10,7 +10,7 @@ public class SumAndSubCalculatorTest extends BaseCalculatorTest {
 
     @Test(groups = "sum")
     public void onePlusTwoEqualsThree() {
-        long result = calculator.sum(1, 3);
+        long result = calculator.sum(1, 2);
         assertEquals(result, 3, "Invali result of operation");
     }
 
@@ -26,7 +26,7 @@ public class SumAndSubCalculatorTest extends BaseCalculatorTest {
         assertEquals(result, expected, "Invalid result of operation");
     }
 
-    @Test(dataProvider = "subDP", groups = "sub")
+    @Test(dataProvider = "subDp", groups = "sub")
     public void oneValueMinusAnother(long a, long b, long expected) {
         long result = calculator.sub(a, b);
         assertEquals(result, expected, "Invali result of operation");
@@ -49,9 +49,8 @@ public class SumAndSubCalculatorTest extends BaseCalculatorTest {
                 {9, 6, 3},
                 {1, -10, 11},
                 {0, 0, 0}
-//56
+
         };
     }
-
 
 }

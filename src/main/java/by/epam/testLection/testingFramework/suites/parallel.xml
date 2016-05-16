@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Calculator" verbose="1" parallel="classes" thread-count="4">
+    <test name="Negative and positive numbers test">
+
+        <classes>
+            <class name="main.java.by.epam.testLection.testingFramework.PositiveNegativeTestFactory"></class>
+        </classes>
+    </test>
+</suite>
