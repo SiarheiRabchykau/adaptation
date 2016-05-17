@@ -6,7 +6,5 @@ import java.util.ArrayList;
 
 
 public interface IReader {
-    public static ArrayList<Mototechnics> read(ArrayList<Mototechnics> mototechnicsArrayList) {
-        return mototechnicsArrayList;
-    }
+    ArrayList<Mototechnics> read(ArrayList<Mototechnics> mototechnicsArrayList, String pathToFile);
 }

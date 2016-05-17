@@ -25,22 +25,27 @@ public class SubCalculatorTest extends BaseCalculatorTest {
         return new Object[][]{
                 {0, 0, 0},
                 {0, 1, -1},
-                {50, 50, 0},
+                {1, 1, 0},
+                {5, -5, 10},
+                {-5, 5, -10},
                 {0, -1, 1},
                 {-1, -1, 0},
-                {-50, -50, 0}
+                {Long.MAX_VALUE, 0, Long.MAX_VALUE},
+                {Long.MIN_VALUE, Long.MAX_VALUE, 1}
         };
     }
 
     @DataProvider(name = "subDouble")
     public Object[][] valueForSubLong() {
         return new Object[][]{
-                {0, 0, 0.0},
+                {0.0, 0.0, 0.0},
                 {0, 1, -1.0},
-                {50, 50, 0.0},
+                {1, 1, 0.0},
+                {5, -5, 10.0},
+                {-5, 5, -10.0},
                 {0, -1, 1.0},
-                {-1, -1, 0.0},
-                {-50, -50, 0.0}
+                {-1, -1, 0},
+                {Double.MAX_VALUE, 1 ,Double.MAX_VALUE}
         };
     }
 }

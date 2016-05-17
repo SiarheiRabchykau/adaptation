@@ -13,8 +13,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class IReaderJSON implements IReader {
-    public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToFile) {
+public class JSONReader implements IReader {
+
+    @Override
+    public ArrayList<Mototechnics> read(ArrayList<Mototechnics> mototechnicsArrayList, String pathToFile) {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToFile));
@@ -43,13 +45,13 @@ public class IReaderJSON implements IReader {
                 } else {
                     newMotoFromJSON = new SportBikes(brand, model, maxSpeed, weight, power, cost);
                 }
-                arrayMoto.add(newMotoFromJSON);
+                mototechnicsArrayList.add(newMotoFromJSON);
             }
 
         } catch (FileNotFoundException e) {
             System.out.println("Unable to read JSON file!");
         }
 
-        return arrayMoto;
+        return mototechnicsArrayList;
     }
 }

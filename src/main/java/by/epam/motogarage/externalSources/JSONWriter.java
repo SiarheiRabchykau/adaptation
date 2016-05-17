@@ -10,7 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class IWriterJSON implements IWriter {
+public class JSONWriter implements IWriter {
+
+    @Override
     public void write(ArrayList<Mototechnics> arrayMoto, String pathToWrite) {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();

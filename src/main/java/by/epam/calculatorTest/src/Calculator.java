@@ -1,5 +1,7 @@
 package main.java.by.epam.calculatorTest.src;
 
+import static java.lang.Math.tan;
+
 public class Calculator {
 
     public Calculator() {
@@ -30,7 +32,7 @@ public class Calculator {
     }
 
     public long div(long a, long b) {
-        if(b == 0L) {
+        if (b == 0L) {
             throw new NumberFormatException("Attempt to divide by zero");
         } else {
             return a / b;
@@ -50,15 +52,18 @@ public class Calculator {
     }
 
     public double tg(double a) {
-        return this.sin(a) / this.cos(a);
+        return tan(a);
+        //return this.sin(a) / this.cos(a);
     }
 
     public double ctg(double a) {
-        return Math.tanh(a);
+        //return Math.tanh(a);
+        return (Math.cos(a) / Math.sin(a));
     }
 
     public double cos(double a) {
-        return Math.sin(a);
+        return Math.cos(a);
+        //return Math.sin(a);
     }
 
     public double sin(double a) {
@@ -66,7 +71,9 @@ public class Calculator {
     }
 
     public boolean isPositive(long val) {
-        return val == 0L?false:val > 0L;
+        //запутать пытаются, ироды!
+        return val == 0L ? false : val > 0L;
+
     }
 
     public boolean isNegative(long val) {

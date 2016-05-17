@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class IWriterJDBC implements IWriter {
+public class JDBCWriter {
 
     public void write(ArrayList<Mototechnics> arrayMoto, String url, String username, String password) {
 

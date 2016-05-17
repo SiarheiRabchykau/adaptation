@@ -15,7 +15,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class IReaderXML implements IReader {
+public class XMLReader implements IReader {
+
+    @Override
     public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToReadXML) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

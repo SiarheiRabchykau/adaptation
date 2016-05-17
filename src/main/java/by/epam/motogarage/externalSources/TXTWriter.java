@@ -7,7 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class IWriterTXT implements IWriter {
+public class TXTWriter implements IWriter {
+
+    @Override
     public void write(ArrayList<Mototechnics> motoList, String pathToWriteTXT) {
         try {
 

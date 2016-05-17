@@ -16,7 +16,9 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.ArrayList;
 
-public class IWriterXML implements IWriter {
+public class XMLWriter implements IWriter {
+
+    @Override
     public void write(ArrayList<Mototechnics> arrayMoto, String pathToWriteXML) {
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();

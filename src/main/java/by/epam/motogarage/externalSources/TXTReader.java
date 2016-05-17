@@ -11,7 +11,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class IReaderTXT implements IReader {
+public class TXTReader implements IReader {
+
+    @Override
     public ArrayList<Mototechnics> read(ArrayList<Mototechnics> arrayMoto, String pathToReadTXT) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(pathToReadTXT));

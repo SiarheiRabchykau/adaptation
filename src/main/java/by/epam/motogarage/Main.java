@@ -37,30 +37,30 @@ public abstract class Main {
     public static void main(String[] args) throws IOException, ToSmallParam {
         ArrayList<Mototechnics> motoList = new ArrayList<>();
 
-        IReaderJDBC iReaderJDBC = new IReaderJDBC();
-        IWriterJDBC iWriterJDBC = new IWriterJDBC();
+        JDBCReader jdbcReader = new JDBCReader();
+        JDBCWriter jdbcWriter = new JDBCWriter();
 
-        IReaderJSON iReaderJSON = new IReaderJSON();
-        IWriterJSON iWriterJSON = new IWriterJSON();
+        JSONReader jsonReader = new JSONReader();
+        JSONWriter jsonWriter = new JSONWriter();
 
-        IReaderXML iReaderXML = new IReaderXML();
-        IWriterXML iWriterXML = new IWriterXML();
+        XMLReader xmlReader = new XMLReader();
+        XMLWriter xmlWriter = new XMLWriter();
 
-        IReaderTXT iReaderTXT = new IReaderTXT();
-        IWriterTXT iWriterTXT = new IWriterTXT();
+        TXTReader txtReader = new TXTReader();
+        TXTWriter txtWriter = new TXTWriter();
 
 
         //read data
-        //iReaderJDBC.read(motoList, URL, USERNAME, PASSWORD);
-        iReaderJSON.read(motoList, pathToReadJSON);
-        iReaderXML.read(motoList, pathToReadXML);
-        iReaderTXT.read(motoList, pathToReadTXT);
+        jdbcReader.read(motoList, URL, USERNAME, PASSWORD);
+        jsonReader.read(motoList, pathToReadJSON);
+        xmlReader.read(motoList, pathToReadXML);
+        txtReader.read(motoList, pathToReadTXT);
 
         //write data to file
-        //iWriterJDBC.write(motoList, URL, USERNAME, PASSWORD);
-        iWriterJSON.write(motoList, pathToWriteJSON);
-        iWriterXML.write(motoList, pathToWriteXML);
-        iWriterTXT.write(motoList, pathToWriteTXT);
+        jdbcWriter.write(motoList, URL, USERNAME, PASSWORD);
+        jsonWriter.write(motoList, pathToWriteJSON);
+        xmlWriter.write(motoList, pathToWriteXML);
+        txtWriter.write(motoList, pathToWriteTXT);
 
         printArrayList(motoList);
 //
