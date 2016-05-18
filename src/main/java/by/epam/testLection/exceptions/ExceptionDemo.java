@@ -1,8 +1,5 @@
-package main.java.by.epam.testLection.exceptions;
+package by.epam.testLection.exceptions;
 
-/**
- * Created by Siarhei_Rabchykau on 4/25/2016.
- */
 public class ExceptionDemo {
     public static class MyLoverException extends RuntimeException {
 

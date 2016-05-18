@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.connections;
+package by.epam.testLection.connections;
 
 /**
  * Created by Siarhei_Rabchykau on 5/3/2016.

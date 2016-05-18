@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.testingFramework;
+package by.epam.testLection.testingFramework;
 
 import org.testng.annotations.Test;
 

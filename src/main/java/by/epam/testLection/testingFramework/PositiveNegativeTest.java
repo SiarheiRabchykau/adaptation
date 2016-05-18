@@ -1,10 +1,9 @@
-package main.java.by.epam.testLection.testingFramework;
+package by.epam.testLection.testingFramework;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import static main.java.by.epam.testLection.testingFramework.calcSrc.TimeOut.sleep;
 import static org.testng.Assert.assertTrue;
 
 
@@ -24,16 +23,16 @@ public class PositiveNegativeTest extends BaseCalculatorTest {
 
     @Test
     public void checkValuePositive() {
-        sleep(1);
-        checkTime();
+        //sleep(1);
+        //checkTime();
         assertTrue(calculator.isPositive(value) == expectedToBePositive);
     }
 
 
     @Test
     public void checkValueNegative() {
-        sleep(1);
-        checkTime();
+        //sleep(1);
+        //checkTime();
         assertTrue(calculator.isNegative(value) == expectedToBeNegative);
     }
 

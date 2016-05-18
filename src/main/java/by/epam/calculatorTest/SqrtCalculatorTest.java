@@ -22,11 +22,8 @@ public class SqrtCalculatorTest extends BaseCalculatorTest {
                 {1, 1},
                 {150, 12.2474487139158904},
                 {25.5, 5.049752469181039},
-                {-81, 9},                       //error
-                {-49, 7}                        //error
-
-
-
+                {-81, 0},                       //error
+                {-49, 0}                        //error
         };
     }
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="CalculatorTestSuite" verbose="1">
+    <test name="Just all other test's">
+        <classes>
+            <class name="main.java.by.epam.calculatorTest.DivCalculatorTest"/>
+            <class name="main.java.by.epam.calculatorTest.MultCalculatorTest"/>
+            <class name="main.java.by.epam.calculatorTest.PowCalculatorTest"/>
+            <class name="main.java.by.epam.calculatorTest.SqrtCalculatorTest"/>
+            <class name="main.java.by.epam.calculatorTest.SubCalculatorTest"/>
+            <class name="main.java.by.epam.calculatorTest.SumCalculatorTest"/>
+            <class name="main.java.by.epam.calculatorTest.CtgCalculatorTest"/>
+
+
+        </classes>
+    </test>
+</suite>

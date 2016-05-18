@@ -1,25 +1,36 @@
 package main.java.by.epam.calculatorTest;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SinCalculatorTest extends BaseCalculatorTest{
-    @Test(dataProvider = "sinDouble", groups = "sin")
-    public void doubleSinTest(double a, double expected) {
-        double result = calculator.sin(a);
-        assertEquals(result, expected, "Invalid result of operation");
+public class SinCalculatorTest extends BaseCalculatorTest {
+
+    @Test(groups = "sin")
+    public void sin0() {
+        double result = calculator.sin(0);
+        assertEquals(result, 0.0);
     }
 
-    @DataProvider(name = "sinDouble")
-    public Object[][] valueForSinDouble() {
-        return new Object[][]{
-                {0, 0.0},
-                {15, 0.6502878401571168},
-                {7.8, 0.998543345374605},
-                {-6, 0.27941549819892586},
-                {-7.34, -0.8707938516910911}
-        };
+    @Test(groups = "sin")
+    public void sin30() {
+        double result = round(calculator.sin(Math.PI / 6));
+        assertEquals(result, 0.5);
+    }
+
+    @Test(groups = "sin")
+    public void sin45() {
+        double result = round(calculator.sin(Math.PI / 4));
+        assertEquals(result, 0.7071);
+    }
+
+    @Test(groups = "sin")
+    public void sin60() {
+        double result = round(calculator.sin(Math.PI / 3));
+        assertEquals(result, 0.866);
+    }
+
+    private double round(double value) {
+        return (double) Math.round(value * 10000d) / 10000d;
     }
 }

@@ -1,12 +1,12 @@
-package main.java.by.epam.motogarage.externalSources;
+package by.epam.motogarage.externalSources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import main.java.by.epam.motogarage.Garage;
-import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
-import main.java.by.epam.motogarage.mototechnictype.motorcycle.ATV;
-import main.java.by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
-import main.java.by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
+import by.epam.motogarage.Garage;
+import by.epam.motogarage.mototechnictype.Mototechnics;
+import by.epam.motogarage.mototechnictype.motorcycle.ATV;
+import by.epam.motogarage.mototechnictype.motorcycle.SportBikes;
+import by.epam.motogarage.mototechnictype.motorcycle.TouristBike;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

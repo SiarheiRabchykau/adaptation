@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.connections;
+package by.epam.testLection.connections;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

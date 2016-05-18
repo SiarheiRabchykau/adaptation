@@ -1,6 +1,6 @@
-package main.java.by.epam.testLection.testingFramework;
+package by.epam.testLection.testingFramework;
 
-import main.java.by.epam.testLection.testingFramework.calcSrc.Calculator;
+import by.epam.testLection.testingFramework.calcSrc.Calculator;
 import org.testng.annotations.BeforeClass;
 
 import java.util.Date;

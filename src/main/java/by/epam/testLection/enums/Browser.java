@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.enums;
+package by.epam.testLection.enums;
 
 public enum Browser {
     CHROME("chrome") {

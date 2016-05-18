@@ -8,7 +8,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CtgCalculatorTest extends BaseCalculatorTest {
 
-    @Test(dataProvider = "ctgDouble", groups = "ctg")
+    @Test(dataProvider = "ctgDouble", groups = "trig")
     public void doubleCtgTest(double a, double expected) {
         double result = calculator.ctg(a);
         assertEquals(result, expected, "Invalid result of operation");

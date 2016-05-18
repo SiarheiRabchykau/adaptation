@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.sameTest;
+package by.epam.testLection.sameTest;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

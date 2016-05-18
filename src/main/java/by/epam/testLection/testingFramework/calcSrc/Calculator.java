@@ -1,8 +1,5 @@
-package main.java.by.epam.testLection.testingFramework.calcSrc;
+package by.epam.testLection.testingFramework.calcSrc;
 
-/**
- * Created by User on 14.05.2016.
- */
 public class Calculator {
 
     public long sum(long a, long b) {

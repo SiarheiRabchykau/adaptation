@@ -3,7 +3,7 @@
     <test name="Negative and positive numbers test">
 
         <classes>
-            <class name="main.java.by.epam.testLection.testingFramework.PositiveNegativeTestFactory"></class>
+            <class name="by.epam.testLection.testingFramework.PositiveNegativeTestFactory"></class>
         </classes>
     </test>
 </suite>

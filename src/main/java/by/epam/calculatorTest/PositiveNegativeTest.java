@@ -1,44 +1,44 @@
 package main.java.by.epam.calculatorTest;
 
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 
 public class PositiveNegativeTest extends BaseCalculatorTest {
 
-    @Test(dataProvider = "positiveValue")
-    public void checkValueNegative(long value, boolean expected) {
-        boolean result = calculator.isPositive(value);
-        assertEquals(result, expected, "Invalid result of operation");
+    private long value;
+    private boolean expectedToBePositive;
+    private boolean expectedToBeNegative;
+
+    @Factory(dataProvider = "valuesForPosNeg")
+    public PositiveNegativeTest(long value, boolean expectedToBePositive, boolean expectedToBeNegative) {
+        this.value = value;
+        this.expectedToBePositive = expectedToBePositive;
+        this.expectedToBeNegative = expectedToBeNegative;
     }
 
-    @Test(dataProvider = "negativeValue")
-    public void checkValuePositive(long value, boolean expected) {
-        boolean result = calculator.isNegative(value);
-        assertEquals(result, expected, "Invalid result of operation");
+    @Test(groups = "posNegTest")
+    public void checkValuePositive() {
+        assertTrue(calculator.isPositive(value) == expectedToBePositive);
     }
 
-    @DataProvider(name = "positiveValue")
-    public static Object[][] valueForPos() {
+
+    @Test(groups = "posNegTest")
+    public void checkValueNegative() {
+        assertTrue(calculator.isNegative(value) == expectedToBeNegative);
+    }
+
+    @DataProvider(name = "valuesForPosNeg")
+    public static Object[][] valuesForCheck() {
         return new Object[][]{
-                {70, true},
-                {1, true},
-                {0, false},
-                {-1, false},
-                {-5, false}
-        };
-    }
-
-    @DataProvider(name = "negativeValue")
-    public static Object[][] valueForSinNeg() {
-        return new Object[][]{
-                {70, false},
-                {1, false},
-                {0, false},
-                {-1, true},
-                {-5, true}
+                {23, true, false},
+                {1, true, false},
+                {0, false, false},
+                {-1, false, true},
+                {-1000, false, true}
         };
     }
 }

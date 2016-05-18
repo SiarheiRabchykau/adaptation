@@ -1,9 +1,9 @@
-package main.java.by.epam.motogarage.externalSources;
+package by.epam.motogarage.externalSources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import main.java.by.epam.motogarage.Garage;
-import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
+import by.epam.motogarage.Garage;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

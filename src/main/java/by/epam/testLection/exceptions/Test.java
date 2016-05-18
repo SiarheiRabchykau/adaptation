@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.exceptions;
+package by.epam.testLection.exceptions;
 
 class Test {
     public static void main(String[] args) {

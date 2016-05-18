@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.enums;
+package by.epam.testLection.enums;
 
 public class EnumDemo {
     public static void main(String[] args) {

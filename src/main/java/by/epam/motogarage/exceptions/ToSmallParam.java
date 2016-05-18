@@ -1,4 +1,4 @@
-package main.java.by.epam.motogarage.exceptions;
+package by.epam.motogarage.exceptions;
 
 public class ToSmallParam extends Exception{
     public ToSmallParam(String strEr) {

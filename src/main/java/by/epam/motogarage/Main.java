@@ -1,4 +1,4 @@
-package main.java.by.epam.motogarage;
+package by.epam.motogarage;
 
 /*
 Task:
@@ -10,9 +10,9 @@ Task:
 */
 
 
-import main.java.by.epam.motogarage.exceptions.ToSmallParam;
-import main.java.by.epam.motogarage.externalSources.*;
-import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
+import by.epam.motogarage.exceptions.ToSmallParam;
+import by.epam.motogarage.externalSources.*;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 
 import java.io.IOException;
 import java.util.*;

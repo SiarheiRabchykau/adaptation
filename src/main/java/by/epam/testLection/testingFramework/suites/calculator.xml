@@ -10,7 +10,7 @@
             </run>
         </groups>
         <classes>
-            <class name="main.java.by.epam.testLection.testingFramework.SumAndSubCalculatorTest">
+            <class name="by.epam.testLection.testingFramework.SumAndSubCalculatorTest">
                 <methods>
                     <include name="oneValue.*"></include>
                 </methods>
@@ -28,7 +28,7 @@
         </groups>
 
         <classes>
-            <class name="main.java.by.epam.testLection.testingFramework.TrigomometryTest">
+            <class name="by.epam.testLection.testingFramework.TrigomometryTest">
                 <methods>
                     <include name="sin0"></include>
                 </methods>

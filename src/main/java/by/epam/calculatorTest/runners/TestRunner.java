@@ -1,4 +1,4 @@
-package by.epam.testLection.testingFramework.runner;
+package main.java.by.epam.calculatorTest.runners;
 
 import org.testng.TestListenerAdapter;
 import org.testng.TestNG;
@@ -8,24 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestRunner {
-
     public static void main(String[] args) {
-        TestListenerAdapter tla = new TestListenerAdapter();
         TestNG tng = new TestNG();
+        TestListenerAdapter tla = new TestListenerAdapter();
         tng.addListener(tla);
-        tng.addListener(new MyTestListener());
+        tng.addListener(new MyListener());
 
         XmlSuite suite = new XmlSuite();
         suite.setName("TmlSuite");
-
         List<String> files = new ArrayList<>();
         files.addAll(new ArrayList<String>() {{
-            add("D:\\Source\\IDEA\\adaptation\\src\\main\\java\\by\\epam\\testLection\\testingFramework\\suites\\calculator.xml");
-            add("D:\\Source\\IDEA\\adaptation\\src\\main\\java\\by\\epam\\testLection\\testingFramework\\suites\\parallel.xml");
+            add("src\\main\\resources\\suites\\unusualtest.xml");
+            add("src\\main\\resources\\suites\\justtest.xml");
         }});
         suite.setSuiteFiles(files);
-        suite.setParallel(XmlSuite.PARALLEL_METHODS);
-        suite.setThreadCount(4);
+        // suite.setParallel(XmlSuite.PARALLEL_METHODS);
+        //suite.setThreadCount(4);
 
         List<XmlSuite> suites = new ArrayList<>();
         suites.add(suite);
@@ -34,3 +32,4 @@ public class TestRunner {
         tng.run();
     }
 }
+

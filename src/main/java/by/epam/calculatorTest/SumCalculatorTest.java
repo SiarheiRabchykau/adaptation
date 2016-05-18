@@ -8,13 +8,13 @@ import static org.testng.Assert.assertEquals;
 public class SumCalculatorTest extends BaseCalculatorTest {
 
 
-    @Test(dataProvider = "sumLong", groups = "sum")
+    @Test(dataProvider = "sumLong", groups = "simpleMathOp")
     public void longSumTest(long a, long b, long expected) {
         long result = calculator.sum(a, b);
         assertEquals(result, expected, "Invalid result of operation");
     }
 
-    @Test(dataProvider = "sumDouble", groups = "sum")
+    @Test(dataProvider = "sumDouble", groups = "simpleMathOp")
     public void doubleSumTest(double a, double b, double expected) {
         double result = calculator.sum(a, b);
         assertEquals(result, expected, "Invalid result of operation");

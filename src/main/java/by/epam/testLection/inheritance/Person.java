@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.inheritance;
+package by.epam.testLection.inheritance;
 
 public class Person {
     protected String firstName;

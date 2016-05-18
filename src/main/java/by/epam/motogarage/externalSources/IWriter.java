@@ -1,6 +1,6 @@
-package main.java.by.epam.motogarage.externalSources;
+package by.epam.motogarage.externalSources;
 
-import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package main.java.by.epam.motogarage.mototechnictype.interfaces;
+package by.epam.motogarage.mototechnictype.interfaces;
 
 public interface Tuning {
     public void reduceWeight();

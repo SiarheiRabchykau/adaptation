@@ -20,7 +20,6 @@ public class PowCalculatorTest extends BaseCalculatorTest {
                 {0, 0, 1},
                 {0, 1, 0},
                 {1, 0, 1},
-
                 {2, 2, 4.0},
                 {5, 2, 25.0},
                 {3, 3.77, 62.9139757039980000},     //error

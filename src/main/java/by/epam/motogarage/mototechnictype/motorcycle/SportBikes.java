@@ -1,8 +1,8 @@
-package main.java.by.epam.motogarage.mototechnictype.motorcycle;
+package by.epam.motogarage.mototechnictype.motorcycle;
 
-import main.java.by.epam.motogarage.exceptions.ToSmallParam;
-import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
-import main.java.by.epam.motogarage.mototechnictype.interfaces.Tuning;
+import by.epam.motogarage.exceptions.ToSmallParam;
+import by.epam.motogarage.mototechnictype.Mototechnics;
+import by.epam.motogarage.mototechnictype.interfaces.Tuning;
 
 public class SportBikes extends Mototechnics implements Tuning{
     public SportBikes(String brand, String model,

@@ -7,13 +7,13 @@ import static org.testng.Assert.assertEquals;
 
 public class SubCalculatorTest extends BaseCalculatorTest {
 
-    @Test(dataProvider = "subLong", groups = "sub")
+    @Test(dataProvider = "subLong", groups = "simpleMathOp")
     public void longSubTest(long a, long b, long expected) {
         long result = calculator.sub(a, b);
         assertEquals(result, expected, "Invalid result of operation");
     }
 
-    @Test(dataProvider = "subDouble", groups = "sub")
+    @Test(dataProvider = "subDouble", groups = "simpleMathOp")
     public void doubleSubTest(double a, double b, double expected) {
         double result = calculator.sub(a, b);
         assertEquals(result, expected, "Invalid result of operation");
@@ -45,7 +45,7 @@ public class SubCalculatorTest extends BaseCalculatorTest {
                 {-5, 5, -10.0},
                 {0, -1, 1.0},
                 {-1, -1, 0},
-                {Double.MAX_VALUE, 1 ,Double.MAX_VALUE}
+                {Double.MAX_VALUE, 1, Double.MAX_VALUE}
         };
     }
 }

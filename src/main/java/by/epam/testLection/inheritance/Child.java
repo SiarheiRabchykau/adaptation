@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.inheritance;
+package by.epam.testLection.inheritance;
 
 public class Child extends Person {
     private Person mother;

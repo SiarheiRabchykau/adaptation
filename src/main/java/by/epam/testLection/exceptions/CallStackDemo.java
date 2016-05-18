@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.exceptions;
+package by.epam.testLection.exceptions;
 
 public class CallStackDemo {
     public void first() {

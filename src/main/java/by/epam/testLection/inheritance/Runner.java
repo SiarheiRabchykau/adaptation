@@ -1,8 +1,5 @@
-package main.java.by.epam.testLection.inheritance;
+package by.epam.testLection.inheritance;
 
-/**
- * Created by User on 23.04.2016.
- */
 public class  Runner {
     public static void main(String[] args) {
 

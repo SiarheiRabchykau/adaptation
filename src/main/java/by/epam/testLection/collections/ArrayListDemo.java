@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.collections;
+package by.epam.testLection.collections;
 
 import java.util.ArrayList;
 import java.util.Iterator;

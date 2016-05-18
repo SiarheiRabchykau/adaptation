@@ -1,6 +1,6 @@
-package main.java.by.epam.motogarage.mototechnictype;
+package by.epam.motogarage.mototechnictype;
 
-import main.java.by.epam.motogarage.exceptions.ToSmallParam;
+import by.epam.motogarage.exceptions.ToSmallParam;
 
 public class Mototechnics {
     protected String brand;

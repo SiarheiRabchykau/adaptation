@@ -1,6 +1,6 @@
-package main.java.by.epam.motogarage.mototechnictype.motorcycle;
+package by.epam.motogarage.mototechnictype.motorcycle;
 
-import main.java.by.epam.motogarage.mototechnictype.Mototechnics;
+import by.epam.motogarage.mototechnictype.Mototechnics;
 
 public class ATV extends Mototechnics {
     public ATV(String brand, String model,

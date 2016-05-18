@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.iostream;
+package by.epam.testLection.iostream;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,15 +1,13 @@
-package by.epam.testLection.testingFramework.runner;
+package main.java.by.epam.calculatorTest.runners;
 
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 
-public class MyTestListener implements IInvokedMethodListener {
-
-
+public class MyListener implements IInvokedMethodListener {
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult TestResult) {
-        System.out.println("method started: " + method.getTestMethod().getMethod());
+        System.out.println("method started: " + method.getTestMethod());
     }
 
     @Override

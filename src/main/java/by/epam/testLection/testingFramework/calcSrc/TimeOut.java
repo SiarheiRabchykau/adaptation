@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.testingFramework.calcSrc;
+package by.epam.testLection.testingFramework.calcSrc;
 
 public class TimeOut {
 

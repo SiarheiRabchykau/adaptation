@@ -1,4 +1,4 @@
-package main.java.by.epam.testLection.encapsulation;
+package by.epam.testLection.encapsulation;
 
 public class Employee {
 

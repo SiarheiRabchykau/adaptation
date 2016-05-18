@@ -1,7 +1,5 @@
 package main.java.by.epam.calculatorTest.src;
 
-import static java.lang.Math.tan;
-
 public class Calculator {
 
     public Calculator() {
@@ -51,14 +49,12 @@ public class Calculator {
         return Math.sqrt(Math.abs(a));
     }
 
-    public double tg(double a) {
-        return tan(a);
-        //return this.sin(a) / this.cos(a);
+    public double tg(double a) {    //tg(a) = Sin(a)/Cos(a)
+        return this.sin(a) / this.cos(a);
     }
 
     public double ctg(double a) {
-        //return Math.tanh(a);
-        return (Math.cos(a) / Math.sin(a));
+        return Math.tanh(a);
     }
 
     public double cos(double a) {
@@ -71,7 +67,6 @@ public class Calculator {
     }
 
     public boolean isPositive(long val) {
-        //запутать пытаются, ироды!
         return val == 0L ? false : val > 0L;
 
     }

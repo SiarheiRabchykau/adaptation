@@ -8,13 +8,13 @@ import static org.testng.Assert.assertEquals;
 public class MultCalculatorTest extends BaseCalculatorTest {
 
 
-    @Test(dataProvider = "multLong", groups = "mult")
+    @Test(dataProvider = "multLong", groups = "simpleMathOp")
     public void longMultTest(long a, long b, long expected) {
         long result = calculator.mult(a, b);
         assertEquals(result, expected, "Invalid result of operation");
     }
 
-    @Test(dataProvider = "multDouble", groups = "mult")
+    @Test(dataProvider = "multDouble", groups = "simpleMathOp")
     public void doubleMultTest(double a, double b, double expected) {
         double result = calculator.mult(a, b);
         assertEquals(result, expected, "Invalid result of operation");
@@ -28,8 +28,8 @@ public class MultCalculatorTest extends BaseCalculatorTest {
                 {1, 0, 0},
                 {0, 1, 0},
                 {1, 1, 1},
-                {-1, 0, 0},
-                {0, -1, 0},
+                {-1, 0, 0},         //actual -0.0
+                {0, -1, 0},         //actual -0.0
                 {-1, -1, 1},
                 {2, 2, 4},
                 {-2, -2, 4}
@@ -54,4 +54,3 @@ public class MultCalculatorTest extends BaseCalculatorTest {
         };
     }
 }
-
