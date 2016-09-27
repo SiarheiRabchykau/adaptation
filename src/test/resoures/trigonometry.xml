@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Simple math operations" verbose="1">
+
+    <test name="Show priority and @Before* and @After*">
+        <classes>
+            <class name="by.epam.calculatorTest.CosCalculatorTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="tg and ctg test">
+        <classes>
+            <class name="by.epam.calculatorTest.CtgCalculatorTest"/>
+        </classes>
+    </test>
+
+    <test name="Show depends">
+        <classes>
+            <class name="by.epam.calculatorTest.SinCalculatorTest"/>
+        </classes>
+    </test>
+
+</suite>

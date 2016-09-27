@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Complex math operations" verbose="1">
+
+    <test name="PARAMETRIZATION with factory">
+        <classes>
+            <class name="by.epam.calculatorTest.PositiveNegativeTestFactory"/>
+            <class name="by.epam.calculatorTest.TimeOutTest"/>
+        </classes>
+    </test>
+
+</suite>

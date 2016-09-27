@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Simple math operations" verbose="1">
+    <test name="Simple math test">
+        <classes>
+            <class name="by.epam.calculatorTest.SubCalculatorTest"/>
+            <class name="by.epam.calculatorTest.SumCalculatorTest"/>
+            <class name="by.epam.calculatorTest.DivCalculatorTest"/>
+            <class name="by.epam.calculatorTest.MultCalculatorTest"/>
+            <class name="by.epam.calculatorTest.PowCalculatorTest"/>
+            <class name="by.epam.calculatorTest.SqrtCalculatorTest"/>
+        </classes>
+    </test>
+</suite>
