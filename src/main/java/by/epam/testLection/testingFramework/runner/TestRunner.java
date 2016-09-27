@@ -20,8 +20,8 @@ public class TestRunner {
 
         List<String> files = new ArrayList<>();
         files.addAll(new ArrayList<String>() {{
-            add("D:\\Source\\IDEA\\adaptation\\src\\main\\java\\by\\epam\\testLection\\testingFramework\\suites\\calculator.xml");
-            add("D:\\Source\\IDEA\\adaptation\\src\\main\\java\\by\\epam\\testLection\\testingFramework\\suites\\parallel.xml");
+            add("D:\\Source\\IDEA\\adaptation\\src\\main\\java\\by\\epam\\testLection\\testingFramework\\by.epam.suites\\calculator.xml");
+            add("D:\\Source\\IDEA\\adaptation\\src\\main\\java\\by\\epam\\testLection\\testingFramework\\by.epam.suites\\parallel.xml");
         }});
         suite.setSuiteFiles(files);
         suite.setParallel(XmlSuite.PARALLEL_METHODS);

@@ -14,7 +14,7 @@ public class Mototechnics {
 
     protected double cost;
 
-    protected Mototechnics(String brand, String model,
+    public Mototechnics(String brand, String model,
                            int maxSpeed, int weight, int power,
                            double cost) {
         this.brand = brand;
